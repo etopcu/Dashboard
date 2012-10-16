@@ -1,0 +1,72 @@
+ <!--This two include files require for pie chart -->
+
+<body> 
+      <script type="text/javascript" src="../HomePage/Dashboard/widgets/js/exporting.js"></script>
+<script type="text/javascript" src="../HomePage/Dashboard/widgets/js/highcharts.js"></script>
+    <div>
+        <div id="widgetPieChart"><div id="pielocation"></div></div>
+    </div>
+</body>
+<script type="text/javascript">
+    var data = [
+                            ['New Hire', 7.25],
+                            ['Terminated', 20],
+                            {
+                                name: 'Active',
+                                y: 70.0,
+                                sliced: true,
+                                selected: true
+                            },
+                            ['Leave', 2.75],
+    ];
+    var createMenu = "";
+    $(document).ready(function () {
+        var chart;
+        $("#pielocation").append(loadPie('test Pie', data, "pielocation"));
+        // Function for loading a highchart pie
+        function loadPie(title, data, pieId) {
+            //var pieId = //'pie' + obj.closest('.widget').attr("id");
+            chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: pieId,
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    width: 650
+                },
+                title: {
+                    text: title
+                },
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.point.name + '</b>: ' + this.y + ' (' + ((this.y / this.total) * 100).toFixed(0) + '%)';
+                    }
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            formatter: function () {
+                                return '<b>' + this.point.name + '</b>: ' + ' ' + ((this.y / this.total) * 100).toFixed(0) + '%';
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: title,
+                    data: data
+                }]
+            });
+
+        }
+
+    });
+
+
+
+</script>

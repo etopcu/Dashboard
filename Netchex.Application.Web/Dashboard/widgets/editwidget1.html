@@ -1,0 +1,40 @@
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<script src="/Includes/jquery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+
+var urlParams = {};
+
+(function($) {
+	$('.saveParametersUrl').live('click', function(){
+		$.ajax({type: 'POST',
+            url: "/Widget/UpdateParameters",
+            data: JSON.stringify(widgetone),
+            contentType: "application/json",
+            success: function(data){
+				
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+            },
+            dataType: "json"
+        });
+		window.open(widgetone.url, '_self', false);
+	});
+	
+	var match,
+		pl     = /\+/g,  // Regex for replacing addition symbol with a space
+		search = /([^&=]+)=?([^&]*)/g,
+		decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+		query  = window.location.search.substring(1);
+
+	while (match = search.exec(query))
+	   urlParams[decode(match[1])] = decode(match[2]);
+	   
+	var widgetone = JSON.parse(urlParams["widgetid"]);
+	console.log(widgetone.url);
+
+})(jQuery);
+
+</script>
+edit widget 1
+
+<button class="saveParametersUrl">Save</button>

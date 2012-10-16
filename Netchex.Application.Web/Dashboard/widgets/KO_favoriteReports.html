@@ -1,0 +1,75 @@
+<script src="../HomePage/Dashboard/widgets/js/knockout-2.1.0.js"></script>
+<style type="text/css">
+        .favIcon
+        {
+            width: 25px;
+            height: 25px;
+            float: left;
+            margin: -10px 5px 5px 0px;
+        }
+
+        .divBlock
+        {
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            font-size: 12px;
+            padding: 15px;
+            font-weight: bold;
+            line-height: 100%;
+            background: #F5F5F5;
+            border: 1px solid #F5F5F5;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        a div:hover
+        {
+            background-color: #D9F7C5;
+        }
+    </style>
+
+<body>
+    <div id="widgetFavReports" class="mainReportDiv">
+        <div data-bind="foreach: WidgetReportOjb">
+        <a href='reportLink.com' style='text-decoration:none'><div class='divBlock'><img src='../HomePage/Dashboard/widget_img/favorites.png' class='favIcon'/><span data-bind="text: name"></span></div></a>
+            </div>
+    </div>
+    <div style="clear: both;"></div>
+</body>
+<script type="text/javascript">
+
+    ko.applyBindings({
+        WidgetReportOjb: [
+             {
+                 url: "reports.com1",
+                 name: "Benefit Report",
+                 id: 123
+             },
+             {
+                 url: "reports.com1",
+                 name: "Payroll Report",
+                 id: 123
+             },
+             {
+                 url: "reports.com1",
+                 name: "Shipping Report",
+                 id: 123
+             },
+             {
+                 url: "reports.com1",
+                 name: "Other Report",
+                 id: 123
+             },
+            {
+                url: "reports.com1",
+                name: "Birthday Report",
+                id: 123
+            }
+
+        ]
+    });
+
+
+
+
+</script>

@@ -1,0 +1,42 @@
+<body>   
+    <div>
+        <div id="nethireWidget"></div>        
+    </div>
+</body>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var BenefitPlan = 1;
+        var Enrollment = 1;
+        var UploadedFiles = 1;
+        var createMenu = "";
+        createMenu = createMenu + "<div class='menu_nethire' id='menu_nethire'>";
+        createMenu = createMenu + createNetHireMenu("Job opportunity", 4, "JobId");
+        createMenu = createMenu + "</div>";
+        $("#nethireWidget").append(createMenu);
+    });
+
+    function createNetHireMenu(MenuHeader, listCount, menuId) {
+        //creating header
+        var strHTML = "";
+        for (i = 1; i <= listCount; i++) {
+            strHTML = strHTML + "<h3><a href='#'>" + MenuHeader + " " + i + ""
+           // strHTML = strHTML + "<span class=\"gbl-float-right\">"
+            strHTML = strHTML + ""
+            //strHTML = strHTML + "</span>Apply</button></span>"
+            strHTML = strHTML + "</a></h3> <div id='" + menuId + i + "'>";
+            //css work need to be put up to css file 
+            strHTML = strHTML + "<p>Descripton Of Position</p><div style='text-decoration:underline; float:right; cursor:pointer'>Apply<span class=\"gbl-icon gbl-icon-check-green gbl-float-left\"></span></div>";
+            strHTML = strHTML + "</div>";
+
+        }
+        return strHTML;
+    }
+
+    
+
+    $(function () {
+        $("#menu_nethire").accordion({ event: "mouseover", active: false });
+    });
+
+</script>

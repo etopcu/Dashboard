@@ -1,0 +1,153 @@
+﻿<script src="/Scripts/jquery-1.7.2.min.js"></script>
+<script src="/Dashboard/widgets/js/knockout-2.1.0.js"></script>
+<style type="text/css">
+      
+   
+        label
+        {               
+            font-weight: normal;
+        }
+        .profileMain
+        {
+            min-width:400px;
+            min-height:450px;
+            height: 100%;
+            width: 100%;
+        }
+
+        .profilepic
+        {
+            float: left;
+            height: 150px;
+            width: 149px;
+            
+        }
+
+        .info1
+        {
+            float: left;
+            height: 30%;
+            width: 60%;
+        }
+
+        .info1 .InfoId
+        {
+            margin: 10px auto;
+            height: 100%;
+            width: 100%;
+        }
+
+            .info1 .InfoId .nameInfo {   
+                font-weight: bold;
+                font-size:35px;
+                margin-bottom: 10px;
+            }
+        .info2
+        {
+            margin-left:15px;
+            float: left;
+            height: 25%;
+            width: 100%;
+        }
+
+        .detailInfo
+        {
+            /*margin: 10px 10px 0px 10px;*/
+            float: left;
+            height: 50%;
+            width: 100%;
+        }
+		 body {
+			margin:0;
+			color:#333333;
+			font:12px/1.4 arial,FreeSans,Helvetica,sans-serif;
+		}		
+
+    .​sizeHeader
+    {   
+        width: 33% !important;
+    }
+    </style>
+
+    <body>
+<div class="profilepic" style='background:url("/Dashboard/widget_img/profilePic.jpg") no-repeat center;'> </div>
+          <div class="info1" >
+                  <div class="InfoId">
+                      <div class="nameInfo"><label data-bind="text: FirstName"></label></div>
+                      <div data-bind="text: Department">Deparment</div>
+                      <div data-bind="text: Supervisor">Supervisor</div>
+                      <div >Cell Phone:<label data-bind="text: CellPhone"> </label></div>
+                      <div >Email:<label data-bind="text: Email"> </label></div>
+                  </div>
+              </div>
+              <div class="info2">
+                  <div>Address :<label data-bind="text: Address"></label></div>
+                  <div>City/State/ Zip: <label data-bind="text: City"></label></div>
+                  <div>Emergency Contact: <label data-bind="text: EmergencyContact"></label></div>
+              </div>
+              <div class="detailInfo">
+                  <table>
+                      <span class='gbl-table-wrapper ui-widget'>
+                          <div class='ui-widget-header'>My Key Dates2</div>
+                          <table class='gbl-table-row-hover ui-widget-content' style='width: 100%'>
+                              <thead>
+                                  <tr>
+                                      <th class="sizeHeader">Event Name</th>
+                                      <th class="sizeHeader">Date</th>
+                                      <th class="sizeHeader">Years</th>
+                                  </tr>
+                              </thead>
+                              <tbody data-bind="{eventName: 'listTemp1', foreach: eventList}">
+                                  <tr >                                      
+                                      <td data-bind="text: eventName" style="text-align:left"></td>
+                                      <td data-bind="text: eventDate" style="text-align:left"></td>
+                                      <td data-bind="text: eventYear" style="text-align:left"></td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </span>
+                  </table>
+              </div>
+        <script id="listTemp1" type="text/html"></script>
+        <div style="clear:both;">
+		</div>
+    </body>
+    
+<script type="text/javascript">
+	var $a = jQuery.noConflict();
+	$a(document).ready(function() {
+		$a.getJSON("/Widget/GetData?widgettype=komyprofile", function(data) {
+			console.log(data);
+			ko.applyBindings(data);
+		});		
+	});
+    //OBJECT WITH LIST
+    var eventList = [{ eventName: "Anniversary", eventDate: "08/11/2012", eventYear: "1 Years" }, { eventName: "Benefit Eligibility", eventDate: "09/15/2012", eventYear: "1 Years" }, { eventName: "Performance Review", eventDate: "07/12/2012", eventYear: "1 Years" }]
+	
+    //var employee = {
+    //    firstName: ko.observable("John"),
+    //    lastName: ko.observable("Smith"),
+    //    deparment: "Marketing",
+    //    supervisor: "SuperDuper",
+    //    email: "test@netchexonline.com",
+    //    cellPhone: "504-123-4556",
+    //    address: "123 Sample Ln apt:007",
+    //    city: ko.observable("Mandeville"),
+    //    state: ko.observable("LA"),
+    //    zipcode: ko.observable("70123"),
+    //    emergencycontact: "504-999-8877",
+    //    keyDate: ko.observableArray(eventList)
+    //
+    //};
+    //employee.fullName = ko.dependentObservable(function () {
+    //    return this.firstName() + " " + this.lastName();
+    //}, employee);
+    //
+    //employee.fullAddress = ko.dependentObservable(function () {
+    //    return this.city() + " / " + this.state() + " / " + this.zipcode();
+    //}, employee);
+    
+
+   
+
+</script>

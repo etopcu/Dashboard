@@ -1,0 +1,92 @@
+<style type="text/css">
+
+        .mainReportDiv
+        {
+            width: 98%;
+            border: 1px solid;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            padding: 5px;
+            white-space: nowrap;
+        }
+
+        .firstCol
+        {
+            width: 45%;
+            float: left;
+        }
+
+        .secondCol
+        {
+            width: 45%;
+            float: right;
+        }
+
+        .iconDiv
+        {
+            width: 15px;
+            height: 15px;
+            float:right;
+            margin: 0px 10px 0px 0px;
+        }
+
+        .reportHeader
+        {
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            border: 1px solid;
+            border-color: #F5F5F5;
+            font-size: 15px;
+            padding: 10px;
+            font-weight: bold;
+            line-height: 100%;
+            background: #F5F5F5;
+            border: 1px solid #F5F5F5;
+        }
+        #reportTitle
+        {
+                font-size:20px !important;
+                text-align:center;
+        }
+
+    </style>
+    <script type="text/javascript" src="../HomePage/Dashboard/widgets/js/message.js"></script>
+    <link type="text/css" href="../HomePage/Dashboard/widgets/style/message_default.css" rel="stylesheet" />
+<body>
+    <div id="widgetNoteCenter">
+        <div class="reportHeader"  id="reportTitle">Report Que</div> 
+        <div class="reportHeader" id="progress">Reports In Progress</div>      
+        <div id="reportProcess" class="mainReportDiv"></div>
+        <div class="reportHeader">Reports are Ready</div>
+        <div id="reportReady" class="mainReportDiv"></div>
+    </div>
+    <div><input type='button' value='Report' onclick='dhtmlx.message({type: "error",  expire: -1, text: "Benefit Report is Ready" })'/></div>
+    <div style="clear:both;"></div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#reportProcess").html(createProcessMenu(4));
+        $("#reportReady").html(createReadyMenu(3));
+    });
+
+
+    function createProcessMenu(reportInProcess) {
+        var menuHtml = "";
+        menuHtml = menuHtml + "";
+        for (var i = 0; i < reportInProcess; i++) {
+            menuHtml = menuHtml + "<div class='firstCol'><a href='reportLink.com' style='text-decoration:none'>Report" + i + "</a></div><div class='secondCol'><img src='../HomePage/Dashboard/widget_img/loading1.gif' class='iconDiv'/></div><br />";
+            
+        }
+        return menuHtml;
+    }
+
+    function createReadyMenu(reportInProcess) {
+        var menuHtml = "";
+        for (var i = 0; i < reportInProcess; i++) {
+            menuHtml = menuHtml + "<div class='firstCol'><a href='reportLink.com' style='text-decoration:none'>Report" + i + "</a></div><div class='secondCol'><img src='../HomePage/Dashboard/widget_img/Complete.png' class='iconDiv'/></div><br />";
+            dhtmlx.message({ type: "error", expire: -1, text: "Report" + i + " is ready<a target='blank' href='http://en.wikipedia.org/wiki/Coffee'>Click here to view!</a>" });
+        }
+        return menuHtml;
+    }
+</script>
