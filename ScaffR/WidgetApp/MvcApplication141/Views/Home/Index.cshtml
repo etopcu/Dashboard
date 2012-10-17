@@ -1,38 +1,143 @@
 ﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Bootstrap/StarterTemplate.cshtml";
-    
-    Bundles.Reference("scripts/viewmodels/dashboardviewmodel.js", "body");
-    Bundles.Reference("scripts/custom/dashboard.js", "body");
-    Bundles.Reference("scripts/Proxies/DashboardService.js", "body");
-    Bundles.Reference("scripts/Proxies/LayoutService.js", "body");
+
+    Bundles.Reference("scripts/custom/ViewModels.js", "body");
+    Bundles.Reference("scripts/custom/DashboardUIManager.js", "body");
+    Bundles.Reference("scripts/custom/DashboardService.js", "body");
 }
 
 @model IEnumerable<MvcApplication141.Models.WidgetModel>
 
 @section TopRight
 {
-    <ul class="pull-right nav">
-        <li>
-            <button class="btn" data-bind="click: AddWidgets">Add Widget</button></li>
-        <li>
-            <button class="btn" data-bind="click: EditLayout">Edit Layout</button></li>
-    </ul>
+    <div class="pull-right btn-group">
+        <button class="btn btn-primary" data-bind="click: ShowAddWidgetDialog">Add Widget</button>
+        <button class="btn" data-bind="click: ShowEditLayoutDialog">Edit Layout</button>
+    </div>
 }
 
-
-<p data-bind="text: currentLayoutName"></p>
+<p data-bind="text: CurrentLayoutName"></p>
 
 <div id="layout">
-    
 </div>
-<div id="edit-dialog" title="Edit Layout" class="hide">
-    <ul data-bind="foreach: availableLayouts">
+
+<div id="convention">
+    <div id="columns">
+        <div data-column="0" class="column well span3">
+            <div class="column-header">
+                <h4>Column 1</h4>
+            </div>
+            <div class="column-body" data-bind="foreach: GetWidgetInstancesForColumn(0)">
+
+                <div class="ui-widget">
+
+                    <div class="ui-widget-header">
+                        <span data-bind="text: Name"></span>
+                    </div>
+
+                    <div class="ui-widget-content" data-bind="html: HtmlValue">
+                        This is the content here
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div data-column="1" class="column well span3">
+            <div class="column-header">
+                <h4>Column 2</h4>
+            </div>
+            <div class="column-body" data-bind="foreach: GetWidgetInstancesForColumn(1)">
+
+                <div class="ui-widget">
+
+                    <div class="ui-widget-header">
+                        <span data-bind="text: Name"></span>
+                    </div>
+
+                    <div class="ui-widget-content" data-bind="html: HtmlValue">
+                        This is the content here
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div data-column="0" class="column well span3">
+            <div class="column-header">
+                <h4>Column 3</h4>
+            </div>
+            <div class="column-body" data-bind="template: {name: 'widgettemplate', foreach: GetWidgetInstancesForColumn(0)}">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="edit-dialog" title="Edit Layout" class="hide" style="width: 500px">
+    <ul data-bind="foreach: InstalledLayouts">
         <li>
-            <a href="#" data-bind="click: $root.changeLayout">                
-                <img data-bind="attr: {src:Thumbnail}" />
+            <a href="#" data-bind="click: $root.ChangeLayout">
+                <img data-bind="attr: {src:Thumbnail, alt:Name}" />
                 <span data-bind="text: Name"></span>
             </a>
         </li>
     </ul>
 </div>
+
+<div id="add-widget-dialog" class="hide" style="width: 500px">
+    <table class="table table-bordered">
+        <tr>
+            <td>
+                <ul data-bind="foreach: Categories">
+                    <li>
+                        <a href="#" data-bind="click: $root.ChangeCategory">
+                            <span data-bind="text: $data"></span>
+                        </a>
+                    </li>
+
+                </ul>
+            </td>
+            <td>
+                <h1 data-bind="text: SelectedCategory"></h1>
+
+                <ul data-bind="foreach: InstalledWidgets">
+                    <li>
+                        <span data-bind="text: Name"></span>
+                        <button class="btn btn-primary btn-mini" data-bind="click: $root.AddWidget">
+                            <i class="icon-plus"></i>
+                        </button>
+                    </li>
+                </ul>
+
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script type="text/html" id="widgettemplate">
+    <div class="ui-widget">
+
+        <div class="ui-widget-header">
+            <span data-bind="text: Name"></span>
+        </div>
+
+        <div class="ui-widget-content" data-bind="html: HtmlValue">
+            This is the content here
+
+        </div>
+
+    </div>
+</script>
+
+
+<script type="text/javascript">
+    $(function () {
+        DashboardService.getDashboard(1, function (data) {
+            ko.applyBindings(new DashboardViewModel(data));
+        });
+    });
+</script>

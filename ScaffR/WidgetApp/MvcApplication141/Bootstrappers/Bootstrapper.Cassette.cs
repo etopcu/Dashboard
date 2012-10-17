@@ -12,9 +12,7 @@ namespace MvcApplication141.Bootstrappers
             configurable.AddPerSubDirectory<StylesheetBundle>("Content/themes/base");
 
 			configurable.AddPerSubDirectory<ScriptBundle>("Scripts/Framework");
-            configurable.AddPerSubDirectory<ScriptBundle>("Scripts/ViewModels");
             configurable.AddPerSubDirectory<ScriptBundle>("Scripts/Custom");
-            configurable.AddPerSubDirectory<ScriptBundle>("Scripts/Proxies");
         }
 	}
 }
