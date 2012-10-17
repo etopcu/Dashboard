@@ -119,18 +119,18 @@
 </div>
 
 <script type="text/html" id="widgettemplate">
-    <div class="ui-widget">
-
-        <div class="ui-widget-header">
-            <span data-bind="text: Name"></span>
-        </div>
-
-        <div class="ui-widget-content" data-bind="html: HtmlValue">
-            This is the content here
-
-        </div>
+<div class="ui-widget ui-widget-content widget">
+    <div class="ui-widget-header">
+        <span class="widgettitle" data-bind="text: Name"></span>
+        <span class="pull-right icons" style="float:right">
+            <span class="ui-icon ui-icon-newwin" style="float:left"></span>
+            <span class="ui-icon ui-icon-arrowthickstop-1-s" style="float:left"></span>
+        </span>
+    </div>
+    <div class="widgetcontent" data-bind="html: HtmlValue">
 
     </div>
+</div>
 </script>
 
 

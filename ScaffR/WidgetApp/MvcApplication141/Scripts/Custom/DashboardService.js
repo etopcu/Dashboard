@@ -9,7 +9,7 @@ var DashboardService = function() {
             widgetInstances: []            
         };
         
-        dashboard.widgetInstances.push({ "Name": "WidgetInstance1", "Id": 1, "Location": { "Column": 0, "Order": 0 } });
+        dashboard.widgetInstances.push({ "Name": "WidgetInstance1", "Id": 1, "HtmlValue": "<span>hello<span>", "Location": { "Column": 0, "Order": 0 } });
         dashboard.widgetInstances.push({ "Name": "WidgetInstance2", "Id": 2, "Location": { "Column": 1, "Order": 1 } });
 
         callback(dashboard);        

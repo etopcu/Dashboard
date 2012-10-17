@@ -44,7 +44,6 @@ function DashboardViewModel(data) {
     
     self.GetWidgetInstancesForColumn = function (column) {
         return ko.utils.arrayFilter(self.WidgetInstances(), function (item) {
-
             if (item.Location()) {
                 return item.Location().Column == column;
             }
