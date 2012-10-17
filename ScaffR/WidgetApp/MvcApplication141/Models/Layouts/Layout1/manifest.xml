@@ -3,6 +3,6 @@
   <Id>1</Id>
   <Name>Name1</Name>
   <Thumbnail>Thumbnail1</Thumbnail>
-  <Order>1</Order>
+  <Order>1</Order>  
   <HtmlValue>HtmlValue1</HtmlValue>
 </Layout>

@@ -203,6 +203,7 @@
     <Content Include="Content\jquery-ui-images\ui-icons_2d86eb_256x240.png" />
     <Content Include="Content\jquery-ui-images\ui-icons_454545_256x240.png" />
     <Content Include="Content\jquery-ui-images\ui-icons_e99158_256x240.png" />
+    <Content Include="Content\Templates\widget.html" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -243,9 +244,8 @@
     <Content Include="Models\Layouts\Layout1\Layout1.html" />
     <Content Include="Models\Widgets\MyProfileWidget\manifest.xml" />
     <Content Include="Models\Widgets\MyProfileWidget\template.html" />
-    <Content Include="Scripts\Custom\Dashboard.js" />
-    <Content Include="Scripts\Custom\jquery.dashboard.js" />
-    <Content Include="Scripts\Custom\LayoutManager.js" />
+    <Content Include="Scripts\Framework\jquery.dashboard.js" />
+    <Content Include="Scripts\Custom\DashboardUIManager.js" />
     <Content Include="Scripts\Framework\bootstrap.js" />
     <Content Include="Scripts\Framework\jquery-1.8.2.js" />
     <Content Include="Scripts\Framework\jquery-ui-1.8.24.js" />
@@ -254,9 +254,8 @@
     <Content Include="Scripts\Framework\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\Framework\json2.js" />
     <Content Include="Scripts\Framework\knockout-2.1.0.js" />
-    <Content Include="Scripts\Proxies\LayoutService.js" />
-    <Content Include="Scripts\Proxies\DashboardService.js" />
-    <Content Include="Scripts\ViewModels\DashboardViewModel.js" />
+    <Content Include="Scripts\Custom\DashboardService.js" />
+    <Content Include="Scripts\Custom\ViewModels.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -270,7 +269,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Templates\" />
     <Folder Include="Models\Widgets\Widget1\Thumbnails\" />
   </ItemGroup>
   <ItemGroup>
@@ -502,7 +500,7 @@
     <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Scripts\JsonService\installedLayouts.json" />
     <Content Include="Scripts\JsonService\currentLayout.json" />
-    <Content Include="Scripts\JsonService\Copy of installedLayouts.json" />
+    <Content Include="Scripts\JsonService\installedWidgets.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

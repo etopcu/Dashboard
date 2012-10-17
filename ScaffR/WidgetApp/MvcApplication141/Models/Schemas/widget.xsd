@@ -6,5 +6,70 @@
     xmlns:mstns="http://tempuri.org/widget.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
+
+  <xs:complexType name="Location">
+    <xs:sequence>
+      <xs:element name="Column" type="xs:int"/>
+      <xs:element name="Order" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Widget">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string"/>
+      <xs:element name="HtmlValue" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="InstalledWidget">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="Widget">
+          <xs:sequence>
+            <xs:element name="Categories">
+              <xs:complexType>
+                <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                  <xs:element name="Category">
+                    <xs:complexType>
+                      <xs:attribute name="Name"/>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Thumbnail"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+
   
+  <xs:element name="WidgetInstance">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="Widget">
+          <xs:sequence>
+            <xs:element name="InstanceId" type="xs:int"/>
+            <xs:element name="UserId" type="xs:int"/>
+            <xs:element name="Location" type="Location"/>
+            <xs:element name="ExtraData">
+              <xs:complexType>
+                <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                  <xs:element name="Add">
+                    <xs:complexType>
+                      <xs:attribute name="Key" type="xs:string"/>
+                      <xs:attribute name="Value" type="xs:string"/>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
 </xs:schema>
