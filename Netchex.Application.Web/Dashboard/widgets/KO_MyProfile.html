@@ -26,14 +26,14 @@
         .info1
         {
             float: left;
-            height: 30%;
+            /*height: 30%;*/
             width: 60%;
         }
 
         .info1 .InfoId
         {
             margin: 10px auto;
-            height: 100%;
+            /*height: 100%;*/
             width: 100%;
         }
 
@@ -45,16 +45,17 @@
         .info2
         {
             margin-left:15px;
-            float: left;
-            height: 25%;
+            /*float: left;*/
+            /*height: 25%;*/
             width: 100%;
+            margin-bottom: 15px;
         }
 
         .detailInfo
         {
             /*margin: 10px 10px 0px 10px;*/
-            float: left;
-            height: 50%;
+            /*float: left;*/
+            /*height: 50%;*/
             width: 100%;
         }
 		 body {
@@ -67,50 +68,54 @@
     {   
         width: 33% !important;
     }
+      
     </style>
 
     <body>
-<div class="profilepic" style='background:url("/Dashboard/widget_img/profilePic.jpg") no-repeat center;'> </div>
-          <div class="info1" >
-                  <div class="InfoId">
-                      <div class="nameInfo"><label data-bind="text: FirstName"></label></div>
-                      <div data-bind="text: Department">Deparment</div>
-                      <div data-bind="text: Supervisor">Supervisor</div>
-                      <div >Cell Phone:<label data-bind="text: CellPhone"> </label></div>
-                      <div >Email:<label data-bind="text: Email"> </label></div>
-                  </div>
-              </div>
-              <div class="info2">
-                  <div>Address :<label data-bind="text: Address"></label></div>
-                  <div>City/State/ Zip: <label data-bind="text: City"></label></div>
-                  <div>Emergency Contact: <label data-bind="text: EmergencyContact"></label></div>
-              </div>
-              <div class="detailInfo">
-                  <table>
-                      <span class='gbl-table-wrapper ui-widget'>
-                          <div class='ui-widget-header'>My Key Dates2</div>
-                          <table class='gbl-table-row-hover ui-widget-content' style='width: 100%'>
-                              <thead>
-                                  <tr>
-                                      <th class="sizeHeader">Event Name</th>
-                                      <th class="sizeHeader">Date</th>
-                                      <th class="sizeHeader">Years</th>
-                                  </tr>
-                              </thead>
-                              <tbody data-bind="{eventName: 'listTemp1', foreach: eventList}">
-                                  <tr >                                      
-                                      <td data-bind="text: eventName" style="text-align:left"></td>
-                                      <td data-bind="text: eventDate" style="text-align:left"></td>
-                                      <td data-bind="text: eventYear" style="text-align:left"></td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </span>
-                  </table>
-              </div>
+        <div class="profilepic" style='background:url("/Dashboard/widget_img/profilePic.jpg") no-repeat center;'> </div>
+        <div class="info1" >
+            <div class="InfoId">
+                <div class="nameInfo"><label data-bind="text: FirstName"></label></div>
+                <div data-bind="text: Department">Deparment</div>
+                <div data-bind="text: Supervisor">Supervisor</div>
+                <div >Cell Phone:<label data-bind="text: CellPhone"> </label></div>
+                <div >Email:<label data-bind="text: Email"> </label></div>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+        <div class="info2">
+            <div>Address :<label data-bind="text: Address"></label></div>
+            <div>City/State/ Zip: <label data-bind="text: City"></label></div>
+            <div>Emergency Contact: <label data-bind="text: EmergencyContact"></label></div>
+        </div>
+        <div class="detailInfo">
+                  
+                <div class='gbl-table-wrapper ui-widget'>
+                    <div class='ui-widget-header'>My Key Dates2</div>
+                        
+                    <table class='gbl-table-row-hover ui-widget-content' style='width: 100%'>
+                        <thead>
+                            <tr>
+                                <th class="sizeHeader">Event Name</th>
+                                <th class="sizeHeader">Date</th>
+                                <th class="sizeHeader">Years</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="{eventName: 'listTemp1', foreach: eventList}">
+                            <tr >                                      
+                                <td data-bind="text: eventName" style="text-align:left"></td>
+                                <td data-bind="text: eventDate" style="text-align:left"></td>
+                                <td data-bind="text: eventYear" style="text-align:left"></td>
+                            </tr>
+                        </tbody>
+                    </table>                    
+                </div>
+                  
+        </div>
+            
         <script id="listTemp1" type="text/html"></script>
-        <div style="clear:both;">
-		</div>
+        
+		
     </body>
     
 <script type="text/javascript">

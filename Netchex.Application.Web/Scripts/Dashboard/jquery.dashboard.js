@@ -240,11 +240,18 @@
                 dashboard.log('dashboardStateChange event thrown for widget ' + wid,2);
                 dashboard.element.trigger("dashboardStateChange",{"stateChange":"widgetAdded","widget":wi});
             }
-            $('iframe').load(function () {
+            $('iframe').load(function () {                
                 this.style.height = "";
                 this.style.width = "";
-                this.style.height = this.contentWindow.document.height + 'px';
-                this.style.width = ($(this).parent().width() -  15) + 'px';
+                /*this.style.height = this.contentWindow.document.height + 'px';
+                this.style.width = ($(this).parent().width() -  15) + 'px';*/
+
+                
+                //$(this).css("width", "98%");
+                $(this).css("width", ($(this).parent().width() - 15) + 'px');
+                $(this).css("height", $(this).contents().height() + 'px');
+
+                setTimeout(function () { $(window).resize(); }, 10);
             });
         };
         
@@ -477,14 +484,19 @@
     };
 
     function setIframeSize() {
-        $('iframe').each(function () {
-            this.style.height = "";
+        $('iframe').each(function () {            
             this.style.width = "";
-            this.style.height = $(this).contents().find("html").height() + 'px';
-            this.style.width = ($(this).parent().width() - 15) + 'px';
+            this.style.height = "";
+
+            //$(this).css("width", "98%");
+            $(this).css("width", ($(this).parent().width() - 15) + 'px');
+            $(this).css("height", $(this).contents().height() + 'px');
         });
     }
 
+    $(window).resize(function () {
+        setIframeSize();
+    });
 
     // FIXME: can this be done easier??
     function getLayout(id) {
