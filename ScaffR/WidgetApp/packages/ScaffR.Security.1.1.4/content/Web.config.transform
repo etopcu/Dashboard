@@ -1,0 +1,32 @@
+﻿<configuration>
+
+  <configSections>
+    <section name="system.identityModel" type="System.IdentityModel.Configuration.SystemIdentityModelSection, System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+    <section name="system.identityModel.services" type="System.IdentityModel.Services.Configuration.SystemIdentityModelServicesSection, System.IdentityModel.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+  </configSections>
+
+  <system.identityModel configSource="identity.config"/>
+  <system.identityModel.services configSource="identityServices.config"/>
+
+  <system.web>
+    <httpModules>
+      <add name="ClaimsTransformationModule" type="$rootnamespace$.Core.Common.Security.ClaimsTransformationHttpModule, $rootnamespace$.Core"/>
+      <add name="SessionAuthenticationModule" type="System.IdentityModel.Services.SessionAuthenticationModule, System.IdentityModel.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    </httpModules>
+  </system.web>
+
+  <system.webServer>
+    <validation validateIntegratedModeConfiguration="false" />
+    <modules runAllManagedModulesForAllRequests="true">
+      <add name="ClaimsTransformationModule" type="$rootnamespace$.Core.Common.Security.ClaimsTransformationHttpModule, $rootnamespace$.Core"/>
+      <add name="SessionAuthenticationModule" type="System.IdentityModel.Services.SessionAuthenticationModule, System.IdentityModel.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    </modules>
+  </system.webServer>
+
+  <$rootnamespace$>
+    <$rootnamespace$.Core>
+      <security securityLevel="None"/>
+    </$rootnamespace$.Core>
+  </$rootnamespace$>
+
+</configuration>

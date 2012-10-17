@@ -1,0 +1,35 @@
+;
+; Copy to
+; - %PROGRAMFILES(x86)%\Microsoft Visual Studio 10.0\Common7\IDE\Extensions (64-bit systems) 
+; - %PROGRAMFILES%\Microsoft Visual Studio 10.0\Common7\IDE\Extensions (32-bit systems)
+; 
+; Created with Default Build Action Generator (http://tools.andreloker.de/dbag
+;
+
+; .t4 files in Windows (C#) projects
+[$RootKey$\Projects\{fae04ec0-301f-11d3-bf4b-00c04f79efbc}\FileExtensions\.t4]
+"DefaultBuildAction"="None"
+
+; .t4 files in Windows (VB.NET) projects
+[$RootKey$\Projects\{f184b08f-c81c-45f6-a57f-5abd9991f28f}\FileExtensions\.t4]
+"DefaultBuildAction"="None"
+
+; .t4 files in Web Application projects
+[$RootKey$\Projects\{349c5851-65df-11da-9384-00065b846f21}\FileExtensions\.t4]
+"DefaultBuildAction"="None"
+
+; .t4 files in Web Site projects
+[$RootKey$\Projects\{e24c65dc-7377-472b-9aba-bc803b73c61a}\FileExtensions\.t4]
+"DefaultBuildAction"="None"
+
+; .t4 files in Silverlight projects
+[$RootKey$\Projects\{a1591282-1198-4647-a2b1-27e5ff5f6f3b}\FileExtensions\.t4]
+"DefaultBuildAction"="None"
+
+; Visual Basic
+[$RootKey$\Projects\{F184B08F-C81C-45f6-A57F-5ABD9991F28F}\FileExtensions\.less]
+"DefaultBuildAction"="Content"
+
+; C#
+[$RootKey$\Projects\{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}\FileExtensions\.less]
+"DefaultBuildAction"="Content"

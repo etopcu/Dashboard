@@ -1,0 +1,19 @@
+﻿<system.identityModel>
+  <identityConfiguration>
+    <claimsAuthenticationManager type="$rootnamespace$.Core.Common.Security.ClaimsTransformer, $rootnamespace$.Core"/>
+    <claimsAuthorizationManager type="$rootnamespace$.Core.Common.Security.AuthorizationManager, $rootnamespace$.Core">
+      <policy resource="ManageUsers" action="View">
+        <or>
+          <claim claimType="http://claims/userId" claimValue="1" />
+          <claim claimType="http://schemas.xmlsoap.org/claims/Group" claimValue="Administrator" />
+        </or>
+      </policy>
+      <policy resource="http://localhost:28491/Administrators.aspx" action="GET">
+        <and>
+          <claim claimType="http://schemas.xmlsoap.org/claims/Group" claimValue="Administrator" />
+          <claim claimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country" claimValue="USA" />
+        </and>
+      </policy>
+    </claimsAuthorizationManager>
+  </identityConfiguration>
+</system.identityModel>

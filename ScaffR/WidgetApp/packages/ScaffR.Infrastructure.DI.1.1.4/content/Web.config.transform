@@ -1,0 +1,17 @@
+﻿<configuration>
+
+  <!--<configSections>
+    <sectionGroup name="$rootnamespace$">
+      <section name="$rootnamespace$.<your module name>" type="$rootnamespace$.Core.Configuration.CoreSectionHandler, $rootnamespace$.Core" requirePermission="false"/>
+    </sectionGroup>
+  </configSections>-->
+
+  <!--<$rootnamespace$>
+    <$rootnamespace$.<your module name>>
+
+    
+    </$rootnamespace$.
+    <your module="" name="">>
+  </$rootnamespace$>-->
+
+</configuration>

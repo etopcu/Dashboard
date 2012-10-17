@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4523EF72-39EF-4588-B721-7B2415C1C625}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MvcApplication141</RootNamespace>
+    <AssemblyName>MvcApplication141</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.60.4609.17023\lib\net20\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette">
+      <HintPath>..\packages\Cassette.2.0.0\lib\net40-client\Cassette.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette.Aspnet">
+      <HintPath>..\packages\Cassette.Aspnet.2.0.0\lib\net40\Cassette.Aspnet.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette.Less">
+      <HintPath>..\packages\Cassette.Less.2.0.0\lib\net40-client\Cassette.Less.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette.Views">
+      <HintPath>..\packages\Cassette.Views.2.0.0\lib\net40\Cassette.Views.dll</HintPath>
+    </Reference>
+    <Reference Include="dotless.ClientOnly">
+      <HintPath>..\packages\DotlessClientOnly.1.3.1.0\lib\dotless.ClientOnly.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcSiteMapProvider">
+      <HintPath>..\packages\ScaffR.Bootstrap.Sitemap.1.1.4\lib\MvcSiteMapProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\ScaffR.Ninject.1.1.4\lib\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\ScaffR.Ninject.1.1.4\lib\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\packages\ScaffR.Ninject.1.1.4\lib\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Omu.ValueInjecter">
+      <HintPath>..\packages\ValueInjecter.2.3.3\lib\net35\Omu.ValueInjecter.dll</HintPath>
+    </Reference>
+    <Reference Include="ScaffR.Extensions">
+      <HintPath>..\packages\ScaffR.Extensions.1.1.4\lib\ScaffR.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Services" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.5.1\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application\MvcApplication.ApplicationStart.cs" />
+    <Compile Include="Application\MvcApplication.SessionStart.cs" />
+    <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
+    <Compile Include="Areas\Api\Controllers\ApiController.cs" />
+    <Compile Include="Areas\Api\Controllers\DashboardsController.cs" />
+    <Compile Include="Areas\Api\Controllers\InstalledLayoutsController.cs" />
+    <Compile Include="Areas\Api\Controllers\InstalledWidgetsController.cs" />
+    <Compile Include="Areas\Api\Controllers\WidgetInstancesController.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.ActionFilters.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.Cassette.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.EventHandlers.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.Layouts.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.Ninject.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.Routes.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.WebApi.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.Widgets.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Extensions\ActionDescriptorExtensions.cs" />
+    <Compile Include="Extensions\Sitemap\BootstrapHelpers.cs" />
+    <Compile Include="Extensions\Sitemap\BreadcrumbExtensions.cs" />
+    <Compile Include="Extensions\Sitemap\NavExtensions.cs" />
+    <Compile Include="Extensions\Sitemap\PillsExtensions.cs" />
+    <Compile Include="Extensions\Sitemap\TabsExtensions.cs" />
+    <Compile Include="Models\Schemas\layout.cs">
+      <DependentUpon>layout.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Schemas\manifest.cs">
+      <DependentUpon>manifest.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sitemap\BreadcrumbHelperModel.cs" />
+    <Compile Include="Models\Sitemap\NavHelperModel.cs" />
+    <Compile Include="Models\Sitemap\PillsHelperModel.cs" />
+    <Compile Include="Models\Sitemap\TabsHelperModel.cs" />
+    <Compile Include="Models\WidgetModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\license.txt" />
+    <Content Include="Content\font\fontawesome-webfont.svg" />
+    <Content Include="Content\images\bg-noise-s.jpg" />
+    <Content Include="Content\jquery-ui-images\pbar-ani.gif" />
+    <Content Include="Content\jquery-ui-images\ui-anim_basic_16x16.gif" />
+    <Content Include="Content\jquery-ui-images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jquery-ui-images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\jquery-ui-images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\jquery-ui-images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\jquery-ui-images\ui-bg_glass_75_b8b8b8_1x400.png" />
+    <Content Include="Content\jquery-ui-images\ui-bg_glass_75_c7c7c7_1x400.png" />
+    <Content Include="Content\jquery-ui-images\ui-bg_highlight-hard_75_e3e3e3_1x100.png" />
+    <Content Include="Content\jquery-ui-images\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="Content\jquery-ui-images\ui-icons_2d86eb_256x240.png" />
+    <Content Include="Content\jquery-ui-images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\jquery-ui-images\ui-icons_e99158_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\Defaults\Dashboard.xml" />
+    <Content Include="Models\Layouts\Layout1\layout1.png" />
+    <Content Include="Models\Layouts\Layout2\layout2.png" />
+    <Content Include="Models\Layouts\Layout3\layout3.png" />
+    <Content Include="Models\Layouts\Layout3\Layout3.html" />
+    <Content Include="Models\Layouts\Layout3\manifest.xml" />
+    <Content Include="Models\Layouts\Layout2\manifest.xml" />
+    <Content Include="Models\Layouts\Layout2\Layout2.html" />
+    <Content Include="Models\Layouts\Layout1\manifest.xml" />
+    <Content Include="Models\Layouts\Layout1\Layout1.html" />
+    <Content Include="Models\Widgets\MyProfileWidget\manifest.xml" />
+    <Content Include="Models\Widgets\MyProfileWidget\template.html" />
+    <Content Include="Scripts\Custom\Dashboard.js" />
+    <Content Include="Scripts\Custom\jquery.dashboard.js" />
+    <Content Include="Scripts\Custom\LayoutManager.js" />
+    <Content Include="Scripts\Framework\bootstrap.js" />
+    <Content Include="Scripts\Framework\jquery-1.8.2.js" />
+    <Content Include="Scripts\Framework\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\Framework\jquery.ui.timepicker.js" />
+    <Content Include="Scripts\Framework\jquery.validate.js" />
+    <Content Include="Scripts\Framework\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\Framework\json2.js" />
+    <Content Include="Scripts\Framework\knockout-2.1.0.js" />
+    <Content Include="Scripts\Proxies\LayoutService.js" />
+    <Content Include="Scripts\Proxies\DashboardService.js" />
+    <Content Include="Scripts\ViewModels\DashboardViewModel.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Models\Widgets\Widget1\manifest.xml" />
+    <Content Include="Models\Widgets\Widget1\Widget1.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\Templates\" />
+    <Folder Include="Models\Widgets\Widget1\Thumbnails\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.MVC.Normalize\ScaffR.MVC.Normalize.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.MVC.Normalize\Global.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\ValidationEngine.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\ValidationContainer.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\ScaffR.Core.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\IValidationContainer.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\DomainObject.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\CoreSection.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MvcApplication141.Core\MvcApplication141.Core.csproj">
+      <Project>{35758977-96E1-4BB8-8D24-619FABCDF6D5}</Project>
+      <Name>MvcApplication141.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcApplication141.Data\MvcApplication141.Data.csproj">
+      <Project>{D9E6B64E-B5DD-41D6-8240-8FBAB324A915}</Project>
+      <Name>MvcApplication141.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcApplication141.Infrastructure\MvcApplication141.Infrastructure.csproj">
+      <Project>{D0212B95-1F9F-45FF-9461-866C496903B8}</Project>
+      <Name>MvcApplication141.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcApplication141.Service\MvcApplication141.Service.csproj">
+      <Project>{1448C6F4-2B8D-4E35-8FB3-07DB5B3EAE2D}</Project>
+      <Name>MvcApplication141.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Common\ScaffR.Infrastructure.Common.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Common\InfrastructureSection.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Eventing\ScaffR.Infrastructure.Eventing.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Eventing\MessageBus.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Eventing\IMessageBus.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Eventing\IHandles.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\ScaffR.Infrastructure.Pipeline.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\Interfaces\ICoreProcessor.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\Infrastructure\PipelineManager.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\Infrastructure\PipelineFactory.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\Infrastructure\FilterChain.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\Infrastructure\FilterActivator.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\Infrastructure\Filter.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\Configuration\PipelineConfigurationElement.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.Common\ScaffR.Data.Common.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.Common\Page.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.Common\IUnitOfWork.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.Common\IRepository.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.Common\IPage.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Services\ScaffR.Services.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Services\IService.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Services\IClientFactory.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Services\ClientFactory.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Services\BaseService.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Service.For\Service.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Service.For\ScaffR.Service.For.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Service.For\IService.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Backend.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Backend.For.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Ninject\ScaffR.Ninject.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Ninject\ScaffR.Ninject.For.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Ninject\Resolvers\NinjectScope.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Ninject\Resolvers\NinjectResolver.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Repository.For\ScaffR.Repository.For.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Repository.For\Repository.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Repository.For\IRepository.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\UnitOfWork.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\ScaffR.Data.EntityFramework.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\Migrations\ScaffR.Data.Migration.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\Migrations\Configuration.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\IDataContext.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\IDatabaseFactory.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\DataContext.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\DatabaseFactory.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\BaseRepository.cs.t4" />
+    <Content Include="Content\less\wells.less" />
+    <Content Include="Content\less\variables.less" />
+    <Content Include="Content\less\utilities.less" />
+    <Content Include="Content\less\type.less" />
+    <Content Include="Content\less\tooltip.less" />
+    <Content Include="Content\less\thumbnails.less" />
+    <Content Include="Content\less\tables.less" />
+    <Content Include="Content\less\sprites.less" />
+    <Content Include="Content\less\scaffolding.less" />
+    <Content Include="Content\less\responsive-utilities.less" />
+    <Content Include="Content\less\responsive-navbar.less" />
+    <Content Include="Content\less\responsive-768px-979px.less" />
+    <Content Include="Content\less\responsive-767px-max.less" />
+    <Content Include="Content\less\responsive-1200px-min.less" />
+    <Content Include="Content\less\responsive.less" />
+    <Content Include="Content\less\reset.less" />
+    <Content Include="Content\less\progress-bars.less" />
+    <Content Include="Content\less\popovers.less" />
+    <Content Include="Content\less\pagination.less" />
+    <Content Include="Content\less\pager.less" />
+    <Content Include="Content\less\navs.less" />
+    <Content Include="Content\less\navbar.less" />
+    <Content Include="Content\less\modals.less" />
+    <Content Include="Content\less\mixins.less" />
+    <Content Include="Content\less\layouts.less" />
+    <Content Include="Content\less\labels-badges.less" />
+    <Content Include="Content\less\hero-unit.less" />
+    <Content Include="Content\less\grid.less" />
+    <Content Include="Content\less\forms.less" />
+    <Content Include="Content\less\font-awesome-ie7.less" />
+    <Content Include="Content\less\font-awesome.less" />
+    <Content Include="Content\less\elements.less" />
+    <Content Include="Content\less\dropdowns.less" />
+    <Content Include="Content\less\component-animations.less" />
+    <Content Include="Content\less\code.less" />
+    <Content Include="Content\less\close.less" />
+    <Content Include="Content\less\carousel.less" />
+    <Content Include="Content\less\buttons.less" />
+    <Content Include="Content\less\button-groups.less" />
+    <Content Include="Content\less\breadcrumbs.less" />
+    <Content Include="Content\less\bootstrap.less" />
+    <Content Include="Content\less\alerts.less" />
+    <Content Include="Content\less\accordion.less" />
+    <Content Include="Content\Framework\bootstrap.less" />
+    <Content Include="Content\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.eot" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Bootstrap\ScaffR.Bootstrap.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Site\scaffR.Site.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Site\CoreSection.Site.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Site\Configuration\SiteElement.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Site\Common\Site.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.MVC.WebApi\ScaffR.MVC.WebApi.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.MVC.WebApi\ScaffR.MVC.WebApi.For.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.MVC.WebApi\ConcreteApiController.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Users.Core\User.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Users.Core\ScaffR.Users.Core.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Users.Core\Person.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Users.Core\Gender.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Users.Service\ScaffR.Users.Service.ps1" />
+    <Content Include="identityServices.config" />
+    <Content Include="identity.config" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Services\UserService.Security.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Services\AuthenticationService.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\ScaffR.Security.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Interfaces\IUserService.Security.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Interfaces\IAuthenticationService.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Configuration\SecurityElement.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Configuration\CoreSection.Security.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\SecurityLevel.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\Security.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\ResourceAction.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\PolicyReader.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\ClaimsTransformer.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\ClaimsTransformationHttpModule.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\AuthorizationManager.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\ApplicationIdentity.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\ApplicationClaims.cs.t4" />
+    <None Include="Models\Schemas\layout.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\Schemas\manifest.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\Schemas\widget.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\Widgets\MyProfileWidget\MyProfileWidget.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Cassette.cshtml" />
+    <Content Include="Views\Shared\Bootstrap\StarterTemplate.cshtml" />
+    <Content Include="Views\Shared\Bootstrap\FluidLayout.cshtml" />
+    <Content Include="Views\Shared\Bootstrap\BootstrapShared.cshtml" />
+    <Content Include="Views\Shared\Bootstrap\BasicMarketing.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Sitemap\Tabs.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Sitemap\Pills.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Sitemap\Nav.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Sitemap\Breadcrumb.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EnumDropDown.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DropDown.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Bootstrap\Bootstrap.Form.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Bootstrap\Bootstrap.Table.cshtml" />
+    <Content Include="Views\Shared\Layout.cshtml" />
+    <Content Include="Scripts\JsonService\installedLayouts.json" />
+    <Content Include="Scripts\JsonService\currentLayout.json" />
+    <Content Include="Scripts\JsonService\Copy of installedLayouts.json" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4388/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

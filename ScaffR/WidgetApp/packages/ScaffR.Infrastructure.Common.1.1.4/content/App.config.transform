@@ -1,0 +1,14 @@
+﻿<configuration>
+
+  <configSections>
+    <sectionGroup name="$rootnamespace$">
+      <section name="$rootnamespace$.Infrastructure" type="$rootnamespace$.Infrastructure.Configuration.InfrastructureSection, $rootnamespace$.Infrastructure" requirePermission="false"/>
+    </sectionGroup>
+  </configSections>
+
+  <$rootnamespace$>
+    <$rootnamespace$.Infrastructure>
+    </$rootnamespace$.Infrastructure>
+  </$rootnamespace$>
+
+</configuration>

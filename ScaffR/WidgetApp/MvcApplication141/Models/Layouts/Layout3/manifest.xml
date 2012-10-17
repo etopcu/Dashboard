@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Layout xmlns="http://tempuri.org/widget.xsd">
+  <Id>1</Id>
+  <Name>Name1</Name>
+  <Thumbnail>Thumbnail1</Thumbnail>
+  <Order>1</Order>
+  <HtmlValue>HtmlValue1</HtmlValue>
+</Layout>

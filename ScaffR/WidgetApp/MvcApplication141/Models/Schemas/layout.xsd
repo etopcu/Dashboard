@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="widget"
+    targetNamespace="http://tempuri.org/widget.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/widget.xsd"
+    xmlns:mstns="http://tempuri.org/widget.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="Layout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Name" type="xs:string"/>
+        <xs:element name="Thumbnail" type="xs:string"/>
+        <xs:element name="Order" type="xs:int"/>
+        <xs:element name="HtmlValue" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>

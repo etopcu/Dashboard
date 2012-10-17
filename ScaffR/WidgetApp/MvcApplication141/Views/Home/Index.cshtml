@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Bootstrap/StarterTemplate.cshtml";
+    
+    Bundles.Reference("scripts/viewmodels/dashboardviewmodel.js", "body");
+    Bundles.Reference("scripts/custom/dashboard.js", "body");
+    Bundles.Reference("scripts/Proxies/DashboardService.js", "body");
+    Bundles.Reference("scripts/Proxies/LayoutService.js", "body");
+}
+
+@model IEnumerable<MvcApplication141.Models.WidgetModel>
+
+@section TopRight
+{
+    <ul class="pull-right nav">
+        <li>
+            <button class="btn" data-bind="click: AddWidgets">Add Widget</button></li>
+        <li>
+            <button class="btn" data-bind="click: EditLayout">Edit Layout</button></li>
+    </ul>
+}
+
+
+<p data-bind="text: currentLayoutName"></p>
+
+<div id="layout">
+    
+</div>
+<div id="edit-dialog" title="Edit Layout" class="hide">
+    <ul data-bind="foreach: availableLayouts">
+        <li>
+            <a href="#" data-bind="click: $root.changeLayout">                
+                <img data-bind="attr: {src:Thumbnail}" />
+                <span data-bind="text: Name"></span>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,5 @@
+﻿<system.identityModel.services>
+  <federationConfiguration>
+    <cookieHandler mode="Default" requireSsl="false" name="$rootnamespace$.auth" />
+  </federationConfiguration>
+</system.identityModel.services>
