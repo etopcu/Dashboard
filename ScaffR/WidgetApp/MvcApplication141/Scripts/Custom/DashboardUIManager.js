@@ -1,30 +1,36 @@
-﻿var DashboardUIManager = function() {
+﻿var DashboardUIManager = function () {
 
-    var _changeLayout = function(newLayout, callback) {
-
-        $('#layout').html(newLayout.HtmlValue());
-
-
-        console.log('layout applied');
+    var _changeLayout = function (newLayout, callback) {
 
         callback();
     };
 
-    var _addWidgetInstance = function (widget, callback) {        
+    var _addWidgetInstance = function (widget, callback) {
         callback();
     };
 
-    var _showEditorForWidget = function(widgetInstance, callback) {
+    var _showEditorForWidget = function (widgetInstance, callback) {
         callback();
     };
 
-    var _digestWidgets = function() {
+    var _digestWidgets = function (viewModel) {
+        $('.column').each(function () {
+            var attr = $(this).attr('data-column');
 
+            if (attr) {
+                //var instances = viewModel.GetWidgetInstancesForColumn(attr);
+
+                //instances = (instances || []);
+
+                //ko.applyBindings({ widgets: instances }, $(this).find('.column-body')[0]);
+            }
+        });
     };
 
-    return {      
+    return {
         addWidgetInstance: _addWidgetInstance,
         changeLayout: _changeLayout,
-        showEditorForWidget: _showEditorForWidget
+        showEditorForWidget: _showEditorForWidget,
+        digestWidgets: _digestWidgets
     };
 }();

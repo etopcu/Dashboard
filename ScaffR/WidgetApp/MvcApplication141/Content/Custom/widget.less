@@ -1,0 +1,38 @@
+﻿@import "../framework/bootstrap.less";
+
+.ui-widget{
+	border: 1px solid red !important;
+	margin-bottom: 10px;
+
+	.ui-widget-header{
+		
+		.ui-widget-title{
+			color: red;
+		}
+
+		.icons{
+			display:none;
+		}
+		
+	}
+
+	&:hover{
+			.icons{
+				display: block;
+			}
+			
+		}
+
+	.Maximized{
+		background-color: blue;
+	}
+
+	.Minimized{
+		background-color: green;
+	}
+
+	.Fullscreen{
+		background-color: yellow;
+	}
+
+}

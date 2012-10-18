@@ -5,8 +5,8 @@ namespace MvcApplication141.Data
     using System.Data.Objects;
 	using System.Data.Entity.ModelConfiguration.Conventions;
 
-    using MvcApplication141.Core.Interfaces.Data;
-    using MvcApplication141.Core.Model;
+    using Core.Interfaces.Data;
+    using Core.Model;
 
     public partial class DataContext : DbContext, IDataContext
     {

@@ -8,6 +8,7 @@ namespace MvcApplication141.Bootstrappers
 	{
         public void Configure(BundleCollection configurable)
         {
+            configurable.AddPerSubDirectory<StylesheetBundle>("Content/custom");
             configurable.AddPerSubDirectory<StylesheetBundle>("Content/Framework");
             configurable.AddPerSubDirectory<StylesheetBundle>("Content/themes/base");
 

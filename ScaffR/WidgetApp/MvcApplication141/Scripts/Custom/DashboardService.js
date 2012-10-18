@@ -5,13 +5,13 @@ var DashboardService = function() {
 
         var dashboard = {
             id: userId,
-            layout: { "Name": "Layout1", "Id": 1, "HtmlValue": '<div class="layout layout-a"><div class="column first column-first"></div></div>' },
+            layout: { "Name": "Layout1", "Id": 1, "HtmlValue": '<div class="layout layout-a"><div class="column first column-first"></div></div>', "Columns": [{ "Index": 0 }, { "Index": 1 }, { "Index": 2 }] },
             widgetInstances: []            
         };
         
-        dashboard.widgetInstances.push({ "Name": "WidgetInstance1", "Id": 1, "Location": { "Column": 0, "Order": 0 } });
-        dashboard.widgetInstances.push({ "Name": "WidgetInstance2", "Id": 2, "Location": { "Column": 1, "Order": 1 } });
-
+        dashboard.widgetInstances.push({ "Name": "WidgetInstance1", "Id": 1, "InstanceId": 100, "Location": { "Column": 0, "Order": 0 } });
+        dashboard.widgetInstances.push({ "Name": "WidgetInstance2", "Id": 2, "InstanceId": 200, "Location": { "Column": 1, "Order": 1 } });
+        dashboard.widgetInstances.push({ "Name": "WidgetInstance3", "Id": 3, "InstanceId": 300, "Location": { "Column": 1, "Order": 2 } });
         callback(dashboard);        
     };
 
@@ -55,10 +55,12 @@ var DashboardService = function() {
 
     var _createWidgetInstance = function(widget, userId, callback) {
 
-        widget.Location = {
-            column: 0,
-            order: 0
+        widget.Location = {            
+            Column: 0,
+            Order: 0
         };
+
+        widget.InstanceId = Math.ceil(Math.random(5,100) *100);
 
         callback(widget);
     };

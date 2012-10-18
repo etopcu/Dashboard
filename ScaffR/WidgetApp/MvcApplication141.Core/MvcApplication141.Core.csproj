@@ -106,6 +106,7 @@
     <Compile Include="Interfaces\Service\IUserService.Security.cs" />
     <Compile Include="Interfaces\Service\IWidgetInstanceService.cs" />
     <Compile Include="Interfaces\Validation\IValidationContainer.cs" />
+    <Compile Include="Model\User.Dashboards.cs" />
     <Compile Include="Model\Dashboard.cs" />
     <Compile Include="Model\DomainObject.cs" />
     <Compile Include="Model\Gender.cs" />
