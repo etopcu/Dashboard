@@ -3,13 +3,13 @@ namespace MvcApplication141.Areas.Api.Controllers
     using Core.Interfaces.Service;
     using Core.Model;
 
-    public partial class InstalledWidgetsController : ApiController<InstalledWidget>
+    public partial class AvailableWidgetsController : ApiController<AvailableWidget>
     {
-	   protected IInstalledWidgetsService InstalledWidgetsService;
+	   protected IAvailableWidgetsService AvailableWidgetsService;
 
-       public InstalledWidgetsController(IInstalledWidgetsService service)
+       public AvailableWidgetsController(IAvailableWidgetsService service)
        {	       
-           Service = InstalledWidgetsService = service;
+           Service = AvailableWidgetsService = service;
        }
     }
 }

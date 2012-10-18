@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MvcApplication141.Core.Model
 {
-    public class InstalledWidget : DomainObject
+    public class AvailableWidget : DomainObject
     {
         public int WidgetId { get; set; }
         public string Name { get; set; }

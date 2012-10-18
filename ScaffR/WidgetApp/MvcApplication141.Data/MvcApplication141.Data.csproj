@@ -60,8 +60,8 @@
     <Compile Include="DashboardRepository.cs" />
     <Compile Include="DatabaseFactory.cs" />
     <Compile Include="DataContext.cs" />
-    <Compile Include="InstalledLayoutRepository.cs" />
-    <Compile Include="InstalledWidgetsRepository.cs" />
+    <Compile Include="AvailableLayoutRepository.cs" />
+    <Compile Include="AvailableWidgetsRepository.cs" />
     <Compile Include="Migrations\201210161847166_Database Created.cs" />
     <Compile Include="Migrations\201210161847166_Database Created.Designer.cs">
       <DependentUpon>201210161847166_Database Created.cs</DependentUpon>

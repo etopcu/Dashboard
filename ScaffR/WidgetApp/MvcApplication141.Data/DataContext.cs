@@ -43,7 +43,7 @@ namespace MvcApplication141.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<InstalledWidget> InstalledWidgets { get; set; }
+        public DbSet<AvailableWidget> AvailableWidgets { get; set; }
 
         public DbSet<Dashboard> Dashboards { get; set; }
 
@@ -53,6 +53,6 @@ namespace MvcApplication141.Data
 
         public DbSet<User> Users { get; set; }
 
-        public DbSet<InstalledLayout> InstalledLayouts { get; set; }
+        public DbSet<AvailableLayout> AvailableLayouts { get; set; }
     }    
 }

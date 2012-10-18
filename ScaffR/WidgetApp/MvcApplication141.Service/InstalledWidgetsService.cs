@@ -5,17 +5,17 @@ namespace MvcApplication141.Service
 	using Core.Interfaces.Service;
     using Core.Model;
 
-    public partial class InstalledWidgetsService : BaseService<InstalledWidget>, IInstalledWidgetsService
+    public partial class AvailableWidgetsService : BaseService<AvailableWidget>, IAvailableWidgetsService
     {
-		protected new IInstalledWidgetsRepository Repository;				
+		protected new IAvailableWidgetsRepository Repository;				
 		
-		public InstalledWidgetsService(IUnitOfWork unitOfWork, IInstalledWidgetsRepository installedwidgetsRepository)
+		public AvailableWidgetsService(IUnitOfWork unitOfWork, IAvailableWidgetsRepository availablewidgetsRepository)
 			:base(unitOfWork)
 		{
-		    base.Repository = Repository = installedwidgetsRepository;
+		    base.Repository = Repository = availablewidgetsRepository;
 		}
 
-        public IQueryable<InstalledWidget> GetWidgetsByCategory(int categoryId)
+        public IQueryable<AvailableWidget> GetWidgetsByCategory(int categoryId)
         {
             throw new System.NotImplementedException();
         }

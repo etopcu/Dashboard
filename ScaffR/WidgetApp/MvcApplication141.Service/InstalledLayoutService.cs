@@ -4,14 +4,14 @@ namespace MvcApplication141.Service
 	using Core.Interfaces.Service;
     using Core.Model;
 
-    public partial class InstalledLayoutService : BaseService<InstalledLayout>, IInstalledLayoutService
+    public partial class AvailableLayoutService : BaseService<AvailableLayout>, IAvailableLayoutService
     {
-		protected new IInstalledLayoutRepository Repository;				
+		protected new IAvailableLayoutRepository Repository;				
 		
-		public InstalledLayoutService(IUnitOfWork unitOfWork, IInstalledLayoutRepository installedlayoutRepository)
+		public AvailableLayoutService(IUnitOfWork unitOfWork, IAvailableLayoutRepository availablelayoutRepository)
 			:base(unitOfWork)
 		{
-		    base.Repository = Repository = installedlayoutRepository;
+		    base.Repository = Repository = availablelayoutRepository;
 		}		
 	}
 }

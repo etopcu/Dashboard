@@ -1,13 +1,12 @@
 ﻿/// <reference path="DashboardUIManager.js" />
 /// <reference path="DashboardService.js" />
 /// <reference path="../Framework/knockout-2.1.0.js" />
-function DashboardViewModel(data) {
+function DashboardViewModel() {
     var self = this;
 
-    // layout stuff
     self.CurrentLayout = ko.observable(new LayoutViewModel(data.layout));
    
-    self.InstalledLayouts = ko.observableArray();
+    self.AvailableLayouts = ko.observableArray();
     
     self.ChangeLayout = function (layout) {
         self.CurrentLayout(layout);
@@ -19,12 +18,12 @@ function DashboardViewModel(data) {
     };
     
     self.ShowEditLayoutDialog = function () {
-        DashboardService.getInstalledLayouts(function (layouts) {
+        DashboardService.getAvailableLayouts(function (layouts) {
             var arr = [];
             $.each(layouts, function (idx, value) {
-                arr.push(new InstalledLayoutViewModel(value));
+                arr.push(new AvailableLayoutViewModel(value));
             });
-            self.InstalledLayouts(arr);
+            self.AvailableLayouts(arr);
             $('#edit-dialog').dialog({
                 width: 500,
                 height: 500
@@ -33,19 +32,19 @@ function DashboardViewModel(data) {
     };
 
     // these show up in the dialog list
-    self.InstalledWidgets = ko.observableArray();
+    self.AvailableWidgets = ko.observableArray();
     
     // widget that you are are currently editing..
     self.CurrentWidgetInstance = ko.observable();
     
     // when user clicks Add Widget..
     self.ShowAddWidgetDialog = function () {
-        DashboardService.getInstalledWidgets(function(widgets) {
+        DashboardService.getAvailableWidgets(function(widgets) {
             var arr = [];
             $.each(widgets, function(idx, value) {
-                arr.push(new InstalledWidgetViewModel(value));
+                arr.push(new AvailableWidgetViewModel(value));
             });
-            self.InstalledWidgets(arr);
+            self.AvailableWidgets(arr);
         });
         $('#add-widget-dialog').dialog({
             width: 500,
@@ -123,7 +122,7 @@ function WidgetViewModel(data) {
     self.Data = data;
 }
 
-function InstalledLayoutViewModel(data) {
+function AvailableLayoutViewModel(data) {
     var self = this;
     $.extend(self, new LayoutViewModel(data));
     self.Name = ko.observable(data.Name);
@@ -132,7 +131,7 @@ function InstalledLayoutViewModel(data) {
     });
 }
 
-function InstalledWidgetViewModel(data) {
+function AvailableWidgetViewModel(data) {
     var self = this;
     self.Categories = ko.observableArray();
     self.Thumbnail = ko.observable();

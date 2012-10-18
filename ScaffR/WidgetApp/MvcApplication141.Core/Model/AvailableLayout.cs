@@ -1,6 +1,6 @@
 ﻿namespace MvcApplication141.Core.Model
 {
-    public class InstalledLayout : DomainObject
+    public class AvailableLayout : DomainObject
     {
         public string Thumbnail { get; set; }
         public int Order { get; set; }

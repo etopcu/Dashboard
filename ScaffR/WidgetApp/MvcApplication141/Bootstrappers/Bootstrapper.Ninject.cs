@@ -59,10 +59,10 @@ namespace MvcApplication141.Bootstrappers
         {
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
             kernel.Bind<IDatabaseFactory>().To<DatabaseFactory>();
-            kernel.Bind<IInstalledWidgetsService>().To<InstalledWidgetsService>();
-            kernel.Bind<IInstalledWidgetsRepository>().To<InstalledWidgetsRepository>();
-            kernel.Bind<IInstalledLayoutService>().To<InstalledLayoutService>();
-            kernel.Bind<IInstalledLayoutRepository>().To<InstalledLayoutRepository>();
+            kernel.Bind<IAvailableWidgetsService>().To<AvailableWidgetsService>();
+            kernel.Bind<IAvailableWidgetsRepository>().To<AvailableWidgetsRepository>();
+            kernel.Bind<IAvailableLayoutService>().To<AvailableLayoutService>();
+            kernel.Bind<IAvailableLayoutRepository>().To<AvailableLayoutRepository>();
             kernel.Bind<IDashboardService>().To<DashboardService>();
             kernel.Bind<IDashboardRepository>().To<DashboardRepository>();
         }   

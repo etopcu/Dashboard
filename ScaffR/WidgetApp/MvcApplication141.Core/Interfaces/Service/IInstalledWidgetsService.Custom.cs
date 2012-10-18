@@ -3,8 +3,8 @@ namespace MvcApplication141.Core.Interfaces.Service
     using System.Linq;
     using Model;
 
-    public partial interface IInstalledWidgetsService : IService<InstalledWidget>
+    public partial interface IAvailableWidgetsService : IService<AvailableWidget>
     {
-        IQueryable<InstalledWidget> GetWidgetsByCategory(int categoryId);
+        IQueryable<AvailableWidget> GetWidgetsByCategory(int categoryId);
     }
 }

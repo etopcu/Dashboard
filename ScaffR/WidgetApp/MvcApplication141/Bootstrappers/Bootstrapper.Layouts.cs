@@ -26,15 +26,15 @@
 
                 var layout = (Layout)serializer.Deserialize(reader);
 
-                var installedLayout = new InstalledLayout
+                var availableLayout = new AvailableLayout
                                           {                                              
                                               HtmlValue = layout.HtmlValue
                                           };
 
 
-                var widgetService = DependencyResolver.Current.GetService<IInstalledLayoutService>();
+                var widgetService = DependencyResolver.Current.GetService<IAvailableLayoutService>();
 
-                widgetService.SaveOrUpdate(installedLayout);
+                widgetService.SaveOrUpdate(availableLayout);
             }
         }
     }

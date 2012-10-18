@@ -256,6 +256,7 @@
     <Content Include="Scripts\Framework\knockout-2.1.0.js" />
     <Content Include="Scripts\Custom\DashboardService.js" />
     <Content Include="Scripts\Custom\ViewModels.js" />
+    <Content Include="Scripts\Framework\knockout-mapping.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -500,9 +501,9 @@
     <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Bootstrap\Bootstrap.Table.cshtml" />
     <Content Include="Views\Shared\Layout.cshtml" />
-    <Content Include="Scripts\JsonService\installedLayouts.json" />
+    <Content Include="Scripts\JsonService\availableLayouts.json" />
     <Content Include="Scripts\JsonService\currentLayout.json" />
-    <Content Include="Scripts\JsonService\installedWidgets.json" />
+    <Content Include="Scripts\JsonService\availableWidgets.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

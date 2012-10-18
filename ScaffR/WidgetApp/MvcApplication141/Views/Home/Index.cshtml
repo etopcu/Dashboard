@@ -74,7 +74,7 @@
 
 
 <div id="edit-dialog" title="Edit Layout" class="hide">
-    <ul data-bind="foreach: InstalledLayouts">
+    <ul data-bind="foreach: AvailableLayouts">
         <li>
             <a href="#" data-bind="click: $root.ChangeLayout">
                 <img data-bind="attr: {src:Thumbnail, alt:Name}" />
@@ -100,7 +100,7 @@
             <td>
                 <h1 data-bind="text: SelectedCategory"></h1>
 
-                <ul data-bind="foreach: InstalledWidgets">
+                <ul data-bind="foreach: AvailableWidgets">
                     <li>
                         <span data-bind="text: Name"></span>
                         <button class="btn btn-primary btn-mini" data-bind="click: $root.AddWidget">
@@ -137,12 +137,9 @@
                     var instances = viewModel.CurrentLayout().Columns()[startColumn].WidgetInstances();
                     for (var i = 0; i < instances.lenght; i++) {
                         if (instances[i].Id == id) {
-                            console.log(instances[i]);
-                            
+                            console.log(instances[i]);                            
                         }
                     }
-
-
                 },
                 start: function (event, ui) {
                     ui.placeholder.height(ui.helper.height());                    

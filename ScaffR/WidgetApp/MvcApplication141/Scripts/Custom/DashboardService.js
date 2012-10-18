@@ -15,9 +15,9 @@ var DashboardService = function() {
         callback(dashboard);        
     };
 
-    var _getInstalledLayouts = function (callback) {
+    var _getAvailableLayouts = function (callback) {
         $.ajax({
-            url: '/scripts/jsonservice/installedlayouts.json',
+            url: '/scripts/jsonservice/availablelayouts.json',
             type: 'GET',
             success: function (data) {
                 callback(data);
@@ -25,10 +25,10 @@ var DashboardService = function() {
         });
     };
 
-    var _getInstalledWidgets = function(callback) {
+    var _getAvailableWidgets = function(callback) {
 
         $.ajax({
-            url: '/scripts/jsonservice/installedwidgets.json',
+            url: '/scripts/jsonservice/availablewidgets.json',
             type: 'GET',
             success: function (data) {
                 callback(data);
@@ -68,8 +68,8 @@ var DashboardService = function() {
     return {
         getDashboard: _getDashboard,
         changeLayout: _changeLayout,
-        getInstalledLayouts: _getInstalledLayouts,
-        getInstalledWidgets: _getInstalledWidgets,
+        getAvailableLayouts: _getAvailableLayouts,
+        getAvailableWidgets: _getAvailableWidgets,
         createWidgetInstance: _createWidgetInstance
     };
 

@@ -30,12 +30,12 @@
 
                     var manifest = (Manifest)serializer.Deserialize(reader);
 
-                    InstalledWidget installedWidget = new InstalledWidget();
-                    installedWidget.InjectFrom<UnflatLoopValueInjection>(manifest);
+                    AvailableWidget availableWidget = new AvailableWidget();
+                    availableWidget.InjectFrom<UnflatLoopValueInjection>(manifest);
 
-                    var widgetService = DependencyResolver.Current.GetService<IInstalledWidgetsService>();
+                    var widgetService = DependencyResolver.Current.GetService<IAvailableWidgetsService>();
 
-                    widgetService.SaveOrUpdate(installedWidget);
+                    widgetService.SaveOrUpdate(availableWidget);
 
                 }
 

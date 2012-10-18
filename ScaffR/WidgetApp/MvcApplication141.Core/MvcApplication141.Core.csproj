@@ -110,8 +110,8 @@
     <Compile Include="Model\Dashboard.cs" />
     <Compile Include="Model\DomainObject.cs" />
     <Compile Include="Model\Gender.cs" />
-    <Compile Include="Model\InstalledLayout.cs" />
-    <Compile Include="Model\InstalledWidget.cs" />
+    <Compile Include="Model\AvailableLayout.cs" />
+    <Compile Include="Model\AvailableWidget.cs" />
     <Compile Include="Model\Location.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\User.cs" />

@@ -3,13 +3,13 @@ namespace MvcApplication141.Areas.Api.Controllers
     using Core.Interfaces.Service;
     using Core.Model;
 
-    public partial class InstalledLayoutsController : ApiController<InstalledLayout>
+    public partial class AvailableLayoutsController : ApiController<AvailableLayout>
     {
-	   protected IInstalledLayoutService InstalledLayoutService;
+	   protected IAvailableLayoutService AvailableLayoutService;
 
-       public InstalledLayoutsController(IInstalledLayoutService service)
+       public AvailableLayoutsController(IAvailableLayoutService service)
        {	       
-           Service = InstalledLayoutService = service;
+           Service = AvailableLayoutService = service;
        }
     }
 }
