@@ -86,7 +86,13 @@
                     handle: '.' + opts.widgetHeaderClass,
                     revert: "invalid",
                     receive: function (event, ui) {
-                        // update the column attribute for the widget
+                        // update the column attribute for the widget     
+                        var obj = ui.item.find("iframe");
+                        if (obj.length > 0) {
+                            var height = obj.contents().height();
+                        } else {
+
+                        }
                         var w = dashboard.getWidget(ui.item.attr("id"));
                         w.column = getColumnIdentifier($(this).attr("class"));
 
@@ -110,16 +116,16 @@
                             }
                         }
                     },
-                    start: function (event, ui) {
-                    $('iframe').each(function () {
-                        $('<div class="ui-resizable-iframeFix" style="background: #fff;"></div>')
-                        .css({
-                            width: this.offsetWidth+"px", height: this.offsetHeight+"px",
-                            position: "absolute", opacity: "0.001", zIndex: 1000
-                        })
-                        .css(jQuery(this).offset())
-                        .appendTo("body");
-                    });
+                    start: function (event, ui) {                        
+                        $('iframe').each(function () {
+                            $('<div class="ui-resizable-iframeFix" style="background: #fff;"></div>')
+                            .css({
+                                width: this.offsetWidth+"px", height: this.offsetHeight+"px",
+                                position: "absolute", opacity: "0.001", zIndex: 1000
+                            })
+                            .css(jQuery(this).offset())
+                            .appendTo("body");
+                        });
 
                         $('div .column').each(function () {
                             $(this).find('.emptycolumn').remove();
@@ -129,12 +135,15 @@
                         ui.placeholder.height(ui.helper.height());
                     },
                     stop: function (event, ui) {
+                        
                         //sorting changed (within one list)
-                    $("div.ui-resizable-iframeFix").each(function () {
-                        this.parentNode.removeChild(this);
-                    });
+                        $("div.ui-resizable-iframeFix").each(function () {
+                            this.parentNode.removeChild(this);
+                        });
+                        var obj = ui.item.find("iframe");
                         setTimeout(function () {
                             ui.item.find('.' + opts.widgetTitleClass).removeClass('noclick');
+                            $(obj).css("height", $(obj).contents().height() + 'px');
                         }, 300);
                     }
 
@@ -149,10 +158,10 @@
         }; // This is a workaround for the following problem: when I drag a widget from column2 to column1, sometimes the widget is
         // moved to column3, which is not visible
         function fixSortableColumns() {
-          dashboard.log('entering fixSortableColumns function',1);
-          $('.nonsortablecolumn').removeClass('nonsortablecolumn').addClass(opts.columnClass);
-          $('.' + opts.columnClass).filter(function () { return $(this).css("display") == 'none'; }).addClass('nonsortablecolumn').removeClass(opts.columnClass);
-          setIframeSize();
+            dashboard.log('entering fixSortableColumns function',1);
+            $('.nonsortablecolumn').removeClass('nonsortablecolumn').addClass(opts.columnClass);
+            $('.' + opts.columnClass).filter(function () { return $(this).css("display") == 'none'; }).addClass('nonsortablecolumn').removeClass(opts.columnClass);
+            setIframeSize();
         }
 
         function getColumnIdentifier(classes) {
