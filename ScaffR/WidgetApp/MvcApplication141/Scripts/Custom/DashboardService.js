@@ -85,8 +85,7 @@ var DashboardService = function() {
             Order: 0
         };
 
-        widget.InstanceId = Math.ceil(Math.random(5,100) *100);
-
+        widget.InstanceId = Math.ceil(Math.random(5,100) * 100);
         callback(widget);
     };
 

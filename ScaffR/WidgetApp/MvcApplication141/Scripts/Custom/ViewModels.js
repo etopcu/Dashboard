@@ -21,23 +21,41 @@ function DashboardViewModel(data) {
     
     // when user chooses a widget to add...
     self.AddWidget = function (widget) {
+        
         DashboardService.createWidgetInstance(widget.Data, 1, function (widgetInstanceData) {
 
             var widgetInstance = new WidgetInstanceViewModel(widgetInstanceData);
 
-            self.AddWidgetInstance(widgetInstance);
+            self.AddWidgetInstance(widgetInstance);         
 
             $('#add-widget-dialog').dialog('close');
         });
     };
 
+    // when user clicks Add Widget..
+    self.ShowAddWidgetDialog = function () {
+        DashboardService.getAvailableWidgets(function (widgets) {
+            var arr = [];
+            $.each(widgets, function (idx, value) {
+                arr.push(new AvailableWidgetViewModel(value));
+            });
+            self.AvailableWidgets(arr);
+        });
+        $('#add-widget-dialog').dialog({
+            width: 500,
+            height: 500
+        });
+    };
+
+    self.AddWidgetInstance = function(instance) {
+        self.WidgetInstances().push(instance);
+        console.log('widget instances', self.WidgetInstances());
+    };
+
+
     // when user clicks on edit widget
     self.EditWidget = function(widgetInstance) {
         self.CurrentWidgetInstance = widgetInstance;
-    };
-
-    self.ShowAddWidgetDialog = function() {
-
     };
     
     // category stuff
@@ -58,14 +76,14 @@ function DashboardViewModel(data) {
                 var id = ui.item.attr('data-instanceId');
                 var newColumnId = $(this).closest('[data-column]').attr('data-column');
 
-                console.log(id, startColumn, newColumnId);
+                console.log('instance', id, 'from', startColumn, 'to', newColumnId);
 
                 ui.item.find('[name=Column]').val(newColumnId);
             },
             start: function (event, ui) {
                 ui.placeholder.height(ui.helper.height());
                 startColumn = $(this).closest('[data-column]').attr('data-column');
-                console.log('start column', startColumn);
+                //console.log('start column', startColumn);
             },
             stop: function (event, ui) {
 
@@ -98,14 +116,15 @@ function ColumnViewModel(data, dashboard) {
     self.WidgetInstances = ko.computed(function () {
         var arr = ko.utils.arrayFilter(self.Dashboard.WidgetInstances(), function (widgetInstance) {
 
+            console.log('filter...');
+
             var column = widgetInstance.Location().Column;
             var order = self.Order();
 
             return (column == order);
         });
-        console.log(arr);
         return arr;
-    });
+    }, self);
 
 
 }

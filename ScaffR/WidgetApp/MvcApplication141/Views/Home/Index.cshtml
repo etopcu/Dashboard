@@ -15,10 +15,8 @@
 {
     <div class="pull-right btn-group" id="buttons">
         <button class="btn btn-primary" data-bind="click: ShowAddWidgetDialog">Add Widget</button>
-        <button class="btn">Edit Layout</button>
     </div>
 }
-
 <div id="columns" data-bind="foreach: { data: Columns, afterRender: Sortable }">
 
     <div class="column span2 well" data-bind="attr:{'data-column': Order}">
@@ -115,6 +113,7 @@
 </div>
 
 <script type="text/javascript">
+
     $(function () {
 
         DashboardService.getDashboard(1, function (data) {
@@ -123,9 +122,5 @@
         });
 
     });
-
-
-
-
 
 </script>
