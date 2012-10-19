@@ -46,6 +46,27 @@ function DashboardViewModel(data) {
     self.ChangeCategory = function(category) {
         self.SelectedCategory(category);
     };
+    var startColumn = 0;
+    self.Sortable = function (e) {
+        $('.column-body').sortable({
+            connectWith: $(".column-body"),
+            placeholder: "selected-column",
+            opacity: "0.2",
+            distance: "20",
+            receive: function (event, ui) {
+
+            },
+            start: function (event, ui) {
+                ui.placeholder.height(ui.helper.height());
+                startColumn = $(this).closest('[data-column]').attr('data-column');
+                console.log('start column', startColumn);
+            },
+            stop: function (event, ui) {
+
+            },
+            revert: 'invalid'
+        });
+    };
 
     self.ChangeCategory(self.Categories()[0]);
 
@@ -79,6 +100,8 @@ function ColumnViewModel(data, dashboard) {
         console.log(arr);
         return arr;
     });
+
+
 }
 ColumnViewModel.prototype.Map = function (columns) {
     var arr = [];

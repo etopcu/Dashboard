@@ -19,9 +19,7 @@
     </div>
 }
 
-<div id="columns">
-
-    <!-- ko foreach: Columns -->
+<div id="columns" data-bind="foreach: { data: Columns, afterRender: Sortable }">
 
     <div class="column span2 well" data-bind="attr:{'data-column': Order}">
         <input type="hidden" name="Order" data-bind="value: Order" />
@@ -82,31 +80,10 @@
         </div>
     </div>
 
-    <!-- /ko -->
-
+</div>
     <div class="column span2 well">
         <button class="btn btn-primary" data-bind="click: AddColumn">Add New</button>
     </div>
-
-    @*<div data-column="0" class="column well span3" data-bind="attr: {'data-column': Index}">
-        <div class="column-header">
-            <h4 data-bind="text: $data.ColumnName"></h4>
-        </div>
-        <div class="column-body" data-bind="foreach: WidgetInstances">
-
-            <div class="ui-widget ui-corner-all ui-widget-content widget" data-bind="attr: {title: Name, Id: InstanceId}">
-                <span data-bind="text: InstanceId"></span>
-                <div class="ui-widget-header ui-corner-all widgetheader">
-                    <span class="ui-widget-title" data-bind="text: Name"></span>
-                    
-                </div>
-                
-            </div>
-        </div>
-    </div>*@
-</div>
-
-
 <div id="add-widget-dialog" class="hide">
     <table class="table table-bordered">
         <tr>
@@ -142,29 +119,7 @@
 
         DashboardService.getDashboard(1, function (data) {
             var viewModel = new DashboardViewModel(data);
-            ko.applyBindings(viewModel);
-
-            var startColumn = 0;
-
-            $('.column-body').sortable({
-                connectWith: $(".column-body"),
-                placeholder: "selected-column",
-                opacity: "0.2",
-                distance: "20",
-                receive: function (event, ui) {
-                    
-                },
-                start: function (event, ui) {
-                    ui.placeholder.height(ui.helper.height());
-                    startColumn = $(this).closest('[data-column]').attr('data-column');
-                    console.log('start column', startColumn);
-                },
-                stop: function (event, ui) {
-
-                },
-                revert: 'invalid'
-            });
-
+            ko.applyBindings(viewModel);                        
         });
 
     });
