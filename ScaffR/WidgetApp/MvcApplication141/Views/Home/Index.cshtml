@@ -38,8 +38,8 @@
                     <span data-bind="text: Name"></span>
                     <div class="pull-right icons">
                         <div class="btn-group">
-                            <a class="btn btn-primary btn-mini" data-bind="click: Fullscreen">
-                                <i class="icon-fullscreen icon-white"></i>
+                                <a class="btn btn-primary btn-mini" data-bind="click: Fullscreen">
+                                    <i class="icon-fullscreen"></i>
                             </a>
                             <a class="btn dropdown-toggle  btn-primary btn-mini" data-toggle="dropdown" href="#"><span class="caret"></span>
                             </a>
@@ -138,6 +138,8 @@
             $('.column-body').sortable({
                 connectWith: $(".column-body"),
                 placeholder: "selected-column",
+                opacity: "0.2",
+                distance: "20",
                 receive: function (event, ui) {
 
                     //var id = ui.item.attr('id');
