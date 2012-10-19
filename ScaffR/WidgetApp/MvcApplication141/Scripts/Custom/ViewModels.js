@@ -1,62 +1,24 @@
 ﻿/// <reference path="DashboardUIManager.js" />
 /// <reference path="DashboardService.js" />
 /// <reference path="../Framework/knockout-2.1.0.js" />
-function DashboardViewModel() {
+function DashboardViewModel(data) {
+
     var self = this;
 
-    self.CurrentLayout = ko.observable(new LayoutViewModel(data.layout));
-   
-    self.AvailableLayouts = ko.observableArray();
-    
-    self.ChangeLayout = function (layout) {
-        self.CurrentLayout(layout);
-        DashboardService.changeLayout(1, layout.Id(), function () {           
-            DashboardUIManager.changeLayout(layout, function () {
-                $('#edit-dialog').dialog('close');
-            });
-        });
+    self.Columns = ko.observableArray();
+
+    self.AddColumn = function() {
+        self.Columns.push(new ColumnViewModel({
+            Title: 'New List',
+            Order: self.Columns().length
+        }, self));
     };
-    
-    self.ShowEditLayoutDialog = function () {
-        DashboardService.getAvailableLayouts(function (layouts) {
-            var arr = [];
-            $.each(layouts, function (idx, value) {
-                arr.push(new AvailableLayoutViewModel(value));
-            });
-            self.AvailableLayouts(arr);
-            $('#edit-dialog').dialog({
-                width: 500,
-                height: 500
-            });
-        });
-    };
+
+    self.WidgetInstances = ko.observableArray();
 
     // these show up in the dialog list
-    self.AvailableWidgets = ko.observableArray();
+    self.AvailableWidgets = ko.observableArray();   
     
-    // widget that you are are currently editing..
-    self.CurrentWidgetInstance = ko.observable();
-    
-    // when user clicks Add Widget..
-    self.ShowAddWidgetDialog = function () {
-        DashboardService.getAvailableWidgets(function(widgets) {
-            var arr = [];
-            $.each(widgets, function(idx, value) {
-                arr.push(new AvailableWidgetViewModel(value));
-            });
-            self.AvailableWidgets(arr);
-        });
-        $('#add-widget-dialog').dialog({
-            width: 500,
-            height: 500
-        });
-    };
-
-    self.AddWidgetInstance = function (instance) {
-        var column = instance.Location().Column;
-        self.CurrentLayout().Columns()[column].WidgetInstances().push(instance);
-    };
-
     // when user chooses a widget to add...
     self.AddWidget = function (widget) {
         DashboardService.createWidgetInstance(widget.Data, 1, function (widgetInstanceData) {
@@ -73,6 +35,10 @@ function DashboardViewModel() {
     self.EditWidget = function(widgetInstance) {
         self.CurrentWidgetInstance = widgetInstance;
     };
+
+    self.ShowAddWidgetDialog = function() {
+
+    };
     
     // category stuff
     self.Categories = ko.observableArray(["Category1", "Category2"]);
@@ -81,27 +47,46 @@ function DashboardViewModel() {
         self.SelectedCategory(category);
     };
 
-    // initialization stuff
-    self.ChangeLayout(this.CurrentLayout(), true);
+    self.ChangeCategory(self.Categories()[0]);
 
-    $.each(data.widgetInstances, function(idx, value) {
-        var widgetInstance = new WidgetInstanceViewModel(value);
-        self.AddWidgetInstance(widgetInstance);
+    var warr = [];
+    $.each(data.WidgetInstances, function (idx, value) {
+        warr.push(new WidgetInstanceViewModel(value));
     });
+    self.WidgetInstances(warr);    
 
-    self.ChangeCategory(self.Categories()[0]);  
+    var arr = [];
+    $.each(data.Columns, function (idx, value) {
+        arr.push(new ColumnViewModel(value, self));
+    });
+    self.Columns(arr);
 }
 
-function ColumnViewModel(data) {
-
+function ColumnViewModel(data, dashboard) {
     var self = this;
-    self.Index = ko.observable(data.Index);
-    self.WidgetInstances = ko.observableArray();
-    self.ColumnName = ko.computed(function () {
-        return "Column " + (self.Index() + 1);
-    });
+    self.Dashboard = dashboard;
+    self.Title = ko.observable(data.Title);
+    self.Order = ko.observable(data.Order);
 
+    self.WidgetInstances = ko.computed(function () {
+        var arr = ko.utils.arrayFilter(self.Dashboard.WidgetInstances(), function (widgetInstance) {
+
+            var column = widgetInstance.Location().Column;
+            var order = self.Order();
+
+            return (column == order);
+        });
+        console.log(arr);
+        return arr;
+    });
 }
+ColumnViewModel.prototype.Map = function (columns) {
+    var arr = [];
+    $.each(data, function(idx, value) {
+        arr.push(new ColumnViewModel(value));
+    });
+    return arr;
+};
 
 function LayoutViewModel(data) {
     var self = this;
@@ -116,19 +101,9 @@ function LayoutViewModel(data) {
 
 function WidgetViewModel(data) {
     var self = this;
-    self.Id = ko.observable(data.Id);
+    self.WidgetId = data.WidgetId;
     self.Name = ko.observable(data.Name);
-    self.HtmlValue = ko.observable(data.HtmlValue);
     self.Data = data;
-}
-
-function AvailableLayoutViewModel(data) {
-    var self = this;
-    $.extend(self, new LayoutViewModel(data));
-    self.Name = ko.observable(data.Name);
-    self.Thumbnail = ko.computed(function () {
-        return "/models/layouts/" + self.Name() + "/" + self.Name() + ".png";
-    });
 }
 
 function AvailableWidgetViewModel(data) {
@@ -139,14 +114,11 @@ function AvailableWidgetViewModel(data) {
 }
 
 function WidgetInstanceViewModel(data) {
-    var self = this;
-
+    var self = this;    
     $.extend(self, new WidgetViewModel(data));    
-    self.ExtraData = ko.observableArray();
     self.Location = ko.observable(data.Location);
     self.InstanceId = data.InstanceId;
     self.State = ko.observable('Maximized');
-
     self.Fullscreen = function() {
         self.State('Fullscreen');
     };

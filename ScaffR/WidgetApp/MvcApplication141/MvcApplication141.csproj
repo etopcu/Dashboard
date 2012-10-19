@@ -504,6 +504,7 @@
     <Content Include="Scripts\JsonService\availableLayouts.json" />
     <Content Include="Scripts\JsonService\currentLayout.json" />
     <Content Include="Scripts\JsonService\availableWidgets.json" />
+    <Content Include="Scripts\JsonService\defaultLayout.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

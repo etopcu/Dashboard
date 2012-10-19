@@ -3,23 +3,48 @@ var DashboardService = function() {
 
     var _getDashboard = function(userId, callback) {
 
-        var dashboard = {
-            id: userId,
-            layout: { "Name": "Layout1", "Id": 1, "HtmlValue": '<div class="layout layout-a"><div class="column first column-first"></div></div>', "Columns": [{ "Index": 0 }, { "Index": 1 }, { "Index": 2 }] },
-            widgetInstances: []            
+        var data = {
+            Columns: [],
+            WidgetInstances: []
         };
+
+        DashboardService.getDefaultLayout(function(layout) {
+            data.Columns = layout.Columns;
+            DashboardService.getWidgetInstances(userId, function (instances) {
+                data.WidgetInstances = instances.WidgetInstances;
+                callback(data);
+            });
+        });
+    };
+
+    var _getWidgetInstances = function(userId, callback) {
+
+        var dashboard = {
+            WidgetInstances: []
+        };
+        dashboard.WidgetInstances.push({ "Name": "WidgetInstance1", "WidgetId": 1, "InstanceId": 100, "Location": { "Column": 1, "Order": 0 } });
+        dashboard.WidgetInstances.push({ "Name": "WidgetInstance2", "WidgetId": 2, "InstanceId": 200, "Location": { "Column": 1, "Order": 1 } });
+        dashboard.WidgetInstances.push({ "Name": "WidgetInstance3", "WidgetId": 3, "InstanceId": 300, "Location": { "Column": 0, "Order": 2 } });
         
-        dashboard.widgetInstances.push({ "Name": "WidgetInstance1", "Id": 1, "InstanceId": 100, "Location": { "Column": 0, "Order": 0 } });
-        dashboard.widgetInstances.push({ "Name": "WidgetInstance2", "Id": 2, "InstanceId": 200, "Location": { "Column": 1, "Order": 1 } });
-        dashboard.widgetInstances.push({ "Name": "WidgetInstance3", "Id": 3, "InstanceId": 300, "Location": { "Column": 1, "Order": 2 } });
         callback(dashboard);        
+    };
+
+    var _getDefaultLayout = function (callback) {
+       
+        $.ajax({
+            url: '/scripts/jsonservice/defaultLayout.json',
+            type: 'GET',
+            success: function (data) {
+                callback(data);
+            }
+        });
     };
 
     var _getAvailableLayouts = function (callback) {
         $.ajax({
             url: '/scripts/jsonservice/availablelayouts.json',
             type: 'GET',
-            success: function (data) {
+            success: function (data) {                
                 callback(data);
             }
         });
@@ -67,10 +92,12 @@ var DashboardService = function() {
 
     return {
         getDashboard: _getDashboard,
+        getWidgetInstances: _getWidgetInstances,
         changeLayout: _changeLayout,
         getAvailableLayouts: _getAvailableLayouts,
         getAvailableWidgets: _getAvailableWidgets,
-        createWidgetInstance: _createWidgetInstance
+        createWidgetInstance: _createWidgetInstance,
+        getDefaultLayout: _getDefaultLayout
     };
 
 }();

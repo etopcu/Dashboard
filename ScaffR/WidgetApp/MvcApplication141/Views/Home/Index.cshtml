@@ -15,74 +15,86 @@
 {
     <div class="pull-right btn-group" id="buttons">
         <button class="btn btn-primary" data-bind="click: ShowAddWidgetDialog">Add Widget</button>
-        <button class="btn" data-bind="click: ShowEditLayoutDialog">Edit Layout</button>
+        <button class="btn">Edit Layout</button>
     </div>
 }
 
-<div id="layout">
-</div>
+<div id="columns">
 
-<div id="convention" data-bind="with: CurrentLayout">
-    <div id="columns" data-bind="foreach: Columns">
-        <div data-column="0" class="column well span3" data-bind="attr: {'data-column': Index}">
-            <div class="column-header">
-                <h4 data-bind="text: $data.ColumnName"></h4>
-            </div>
-            <div class="column-body" data-bind="foreach: WidgetInstances">
-                
-                <div class="ui-widget ui-corner-all ui-widget-content widget" data-bind="attr: {title: Name, Id: InstanceId}">
-                    <span data-bind="text: InstanceId"></span>
-                    <div class="ui-widget-header ui-corner-all widgetheader">
-                        <span class="ui-widget-title" data-bind="text: Name"></span>
-                        <div class="pull-right icons">
-                            <div class="btn-group">
-                                <a class="btn btn-primary btn-mini" data-bind="click: Fullscreen">
-                                    <i class="icon-fullscreen icon-white"></i>
-                                </a>
-                                <a class="btn dropdown-toggle  btn-primary btn-mini" data-toggle="dropdown" href="#"><span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li>                                                          
-                                        <a class="maximize" href="#" data-bind="click: Maximize"><i class="icon-plus"></i>Maximize</a>
-                                    </li>
-                                    <li>                                        
-                                        <a class="minimization" href="#" data-bind="click: Minimize"><i class="icon-minus"></i>Minimize</a>
-                                    </li>
-                                    <li>
-                                        <a class="delete" href="#" data-bind="click: Delete"><i class="icon-remove"></i>Delete</a>
-                                    </li>
-                                    <li>
-                                        <a class="no_target" href="#" data-bind="click: Edit"><i class="icon-pencil"></i>Edit</a>
-                                    </li>
-                                    <li>
-                                        <a class="no_target" href="#" data-bind="click: Refresh"><i class="icon-refresh"></i>Refresh</a>
-                                    </li>
-                                </ul>
-                            </div>
+    <!-- ko foreach: Columns -->
 
+    <div class="column span2 well" data-bind="attr:{'data-column': Order}">
+        <input type="hidden" name="Order" data-bind="value: Order" />
+        <div class="column-header">
+            <span data-bind="value: Title" />
+        </div>
+        <div class="column-body" data-bind="foreach: WidgetInstances">
+            <div class="ui-widget clearfix" data-bind="attr: {'data-instanceId': InstanceId}">
+                <!-- ko with: Location -->
+                <input type="hidden" name="Column" data-bind="value: Column" />
+                <input type="hidden" name="Order" data-bind="value: Order" />
+                <!-- /ko -->
+                <div class="ui-widget-header">
+                    <span data-bind="text: Name"></span>
+                    <div class="pull-right icons">
+                        <div class="btn-group">
+                            <a class="btn btn-primary btn-mini" data-bind="click: Fullscreen">
+                                <i class="icon-fullscreen icon-white"></i>
+                            </a>
+                            <a class="btn dropdown-toggle  btn-primary btn-mini" data-toggle="dropdown" href="#"><span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a class="maximize" href="#" data-bind="click: Maximize"><i class="icon-plus"></i>Maximize</a>
+                                </li>
+                                <li>
+                                    <a class="minimization" href="#" data-bind="click: Minimize"><i class="icon-minus"></i>Minimize</a>
+                                </li>
+                                <li>
+                                    <a class="delete" href="#" data-bind="click: Delete"><i class="icon-remove"></i>Delete</a>
+                                </li>
+                                <li>
+                                    <a class="no_target" href="#" data-bind="click: Edit"><i class="icon-pencil"></i>Edit</a>
+                                </li>
+                                <li>
+                                    <a class="no_target" href="#" data-bind="click: Refresh"><i class="icon-refresh"></i>Refresh</a>
+                                </li>
+                            </ul>
                         </div>
-                    </div>
-                    <div data-bind="attr: {class: State}">
-                        asdf
+
                     </div>
                 </div>
-
+                <div class="ui-widget-content" data-bind="attr: {class: State}">
+                    asdf
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- /ko -->
+
+    <div class="column span2 well">
+        <button class="btn btn-primary" data-bind="click: AddColumn">Add New</button>
+    </div>
+
+    @*<div data-column="0" class="column well span3" data-bind="attr: {'data-column': Index}">
+        <div class="column-header">
+            <h4 data-bind="text: $data.ColumnName"></h4>
+        </div>
+        <div class="column-body" data-bind="foreach: WidgetInstances">
+
+            <div class="ui-widget ui-corner-all ui-widget-content widget" data-bind="attr: {title: Name, Id: InstanceId}">
+                <span data-bind="text: InstanceId"></span>
+                <div class="ui-widget-header ui-corner-all widgetheader">
+                    <span class="ui-widget-title" data-bind="text: Name"></span>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>*@
 </div>
 
-
-<div id="edit-dialog" title="Edit Layout" class="hide">
-    <ul data-bind="foreach: AvailableLayouts">
-        <li>
-            <a href="#" data-bind="click: $root.ChangeLayout">
-                <img data-bind="attr: {src:Thumbnail, alt:Name}" />
-                <span data-bind="text: Name"></span>
-            </a>
-        </li>
-    </ul>
-</div>
 
 <div id="add-widget-dialog" class="hide">
     <table class="table table-bordered">
@@ -116,6 +128,7 @@
 
 <script type="text/javascript">
     $(function () {
+
         DashboardService.getDashboard(1, function (data) {
             var viewModel = new DashboardViewModel(data);
             ko.applyBindings(viewModel);
@@ -127,31 +140,37 @@
                 placeholder: "selected-column",
                 receive: function (event, ui) {
 
-                    var id = ui.item.attr('id');
-                    var newColumnId = $(this).closest('[data-column]').attr('data-column');
+                    //var id = ui.item.attr('id');
+                    //var newColumnId = $(this).closest('[data-column]').attr('data-column');
 
-                    var column = viewModel.CurrentLayout().Columns()[startColumn];
-                    console.log(column);
+                    //var column = viewModel.CurrentLayout().Columns()[startColumn];
+                    //console.log(column);
 
 
-                    var instances = viewModel.CurrentLayout().Columns()[startColumn].WidgetInstances();
-                    for (var i = 0; i < instances.lenght; i++) {
-                        if (instances[i].Id == id) {
-                            console.log(instances[i]);                            
-                        }
-                    }
+                    //var instances = viewModel.CurrentLayout().Columns()[startColumn].WidgetInstances();
+                    //for (var i = 0; i < instances.lenght; i++) {
+                    //    if (instances[i].Id == id) {
+                    //        console.log(instances[i]);
+                    //    }
+                    //}
                 },
                 start: function (event, ui) {
-                    ui.placeholder.height(ui.helper.height());                    
+                    ui.placeholder.height(ui.helper.height());
                     startColumn = $(this).closest('[data-column]').attr('data-column');
                     console.log('start column', startColumn);
                 },
                 stop: function (event, ui) {
-                    
-                },                
+
+                },
                 revert: 'invalid'
             });
 
         });
+
     });
+
+
+
+
+
 </script>
