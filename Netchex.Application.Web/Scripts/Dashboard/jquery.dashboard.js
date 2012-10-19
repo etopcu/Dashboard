@@ -77,7 +77,7 @@
             }
 
             //if (dashboard.type != "Company") {
-            // make the columns sortable, see http://jqueryui.com/demos/sortable/ for explaination
+            // make the columns sortable, see http://jqueryui.com/demos/sortable/ for explaination            
                 $('.' + opts.columnClass).sortable({
                     iframeFix: true,
                     connectWith: $('.' + opts.columnClass),
@@ -127,7 +127,7 @@
                             .appendTo("body");
                         });
 
-                        $('div .column').each(function () {
+                        $('div .column').each(function () {                            
                             $(this).find('.emptycolumn').remove();
                         });
 
@@ -500,6 +500,19 @@
             //$(this).css("width", "98%");
             $(this).css("width", ($(this).parent().width() - 15) + 'px');
             $(this).css("height", $(this).contents().height() + 'px');
+        });
+
+        var max_height = 0;
+        $("div .column").each(function () {
+            if (max_height < $(this).height()) {
+                max_height = $(this).height();
+            }
+        });
+
+        $("div .column").each(function () {
+            if ($(this).height() < max_height) {
+                $(this).css("min-height", max_height);
+            }
         });
     }
 
