@@ -54,7 +54,13 @@ function DashboardViewModel(data) {
             opacity: "0.2",
             distance: "20",
             receive: function (event, ui) {
+                
+                var id = ui.item.attr('data-instanceId');
+                var newColumnId = $(this).closest('[data-column]').attr('data-column');
 
+                console.log(id, startColumn, newColumnId);
+
+                ui.item.find('[name=Column]').val(newColumnId);
             },
             start: function (event, ui) {
                 ui.placeholder.height(ui.helper.height());
