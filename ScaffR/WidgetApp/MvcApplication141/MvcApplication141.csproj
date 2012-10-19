@@ -242,10 +242,14 @@
     <Content Include="Models\Layouts\Layout2\Layout2.html" />
     <Content Include="Models\Layouts\Layout1\manifest.xml" />
     <Content Include="Models\Layouts\Layout1\Layout1.html" />
-    <Content Include="Models\Widgets\MyProfileWidget\manifest.xml" />
-    <Content Include="Models\Widgets\MyProfileWidget\template.html" />
+    <Content Include="Models\Widgets\Widget1\Controller.js" />
+    <Content Include="Models\Widgets\Widget1\ViewModels.js" />
+    <Content Include="Models\Widgets\Widget1\Views\Fullscreen.html" />
+    <Content Include="Models\Widgets\Widget1\Views\Minimized.html" />
+    <Content Include="Models\Widgets\Widget1\Views\Edit.html" />
+    <Content Include="Models\Widgets\Widget1\Views\Maximized.html" />
+    <Content Include="Scripts\Custom\ViewModels.WidgetInstance.js" />
     <Content Include="Scripts\Framework\jquery.dashboard.js" />
-    <Content Include="Scripts\Custom\DashboardUIManager.js" />
     <Content Include="Scripts\Framework\bootstrap.js" />
     <Content Include="Scripts\Framework\jquery-1.8.2.js" />
     <Content Include="Scripts\Framework\jquery-ui-1.8.24.js" />
@@ -257,6 +261,7 @@
     <Content Include="Scripts\Custom\DashboardService.js" />
     <Content Include="Scripts\Custom\ViewModels.js" />
     <Content Include="Scripts\Framework\knockout-mapping.js" />
+    <Content Include="Scripts\Framework\koExternalTemplateEngine_all.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -266,7 +271,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Models\Widgets\Widget1\manifest.xml" />
-    <Content Include="Models\Widgets\Widget1\Widget1.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -480,9 +484,6 @@
     <None Include="Models\Schemas\widget.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Models\Widgets\MyProfileWidget\MyProfileWidget.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Cassette.cshtml" />
     <Content Include="Views\Shared\Bootstrap\StarterTemplate.cshtml" />
@@ -502,7 +503,6 @@
     <Content Include="Views\Shared\DisplayTemplates\Bootstrap\Bootstrap.Table.cshtml" />
     <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Scripts\JsonService\availableLayouts.json" />
-    <Content Include="Scripts\JsonService\currentLayout.json" />
     <Content Include="Scripts\JsonService\availableWidgets.json" />
     <Content Include="Scripts\JsonService\defaultLayout.json" />
   </ItemGroup>

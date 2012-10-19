@@ -22,9 +22,9 @@ var DashboardService = function() {
         var dashboard = {
             WidgetInstances: []
         };
-        dashboard.WidgetInstances.push({ "Name": "WidgetInstance1", "WidgetId": 1, "InstanceId": 100, "Location": { "Column": 1, "Order": 0 } });
-        dashboard.WidgetInstances.push({ "Name": "WidgetInstance2", "WidgetId": 2, "InstanceId": 200, "Location": { "Column": 1, "Order": 1 } });
-        dashboard.WidgetInstances.push({ "Name": "WidgetInstance3", "WidgetId": 3, "InstanceId": 300, "Location": { "Column": 0, "Order": 2 } });
+        dashboard.WidgetInstances.push({ "Name": "Widget1", "WidgetId": 1, "InstanceId": 100, "Location": { "Column": 1, "Order": 0 } });
+        dashboard.WidgetInstances.push({ "Name": "Widget1", "WidgetId": 2, "InstanceId": 200, "Location": { "Column": 1, "Order": 1 } });
+        dashboard.WidgetInstances.push({ "Name": "Widget1", "WidgetId": 3, "InstanceId": 300, "Location": { "Column": 0, "Order": 2 } });
         
         callback(dashboard);        
     };

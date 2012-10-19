@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/Bootstrap/StarterTemplate.cshtml";
 
     Bundles.Reference("scripts/custom/ViewModels.js", "body");
-    Bundles.Reference("scripts/custom/DashboardUIManager.js", "body");
+    Bundles.Reference("scripts/custom/viewModels.WidgetInstance.js", "body");
     Bundles.Reference("scripts/custom/DashboardService.js", "body");
     Bundles.Reference("content/custom/widget.less");
     Bundles.Reference("content/custom/column.less");
@@ -15,6 +15,7 @@
 {
     <div class="pull-right btn-group" id="buttons">
         <button class="btn btn-primary" data-bind="click: ShowAddWidgetDialog">Add Widget</button>
+        <button class="btn btn-primary" data-bind="click: RebuildIndex">Refresh</button>
     </div>
 }
 <div id="columns" data-bind="foreach: { data: Columns, afterRender: Sortable }">
@@ -24,18 +25,14 @@
         <div class="column-header">
             <span data-bind="value: Title" />
         </div>
-        <div class="column-body" data-bind="foreach: WidgetInstances">
+        <div class="column-body" data-bind="foreach: { data: WidgetInstances }">
             <div class="ui-widget ui-widget-content clearfix" data-bind="attr: {'data-instanceId': InstanceId}">
-                <!-- ko with: Location -->
-                <input type="hidden" name="Column" data-bind="value: Column" />
-                <input type="hidden" name="Order" data-bind="value: Order" />
-                <!-- /ko -->
                 <div class="ui-widget-header">
                     <span data-bind="text: Name"></span>
                     <div class="pull-right icons">
                         <div class="btn-group">
-                                <a class="btn btn-primary btn-mini" data-bind="click: Fullscreen">
-                                    <i class="icon-fullscreen"></i>
+                            <a class="btn btn-primary btn-mini" data-bind="click: Fullscreen">
+                                <i class="icon-fullscreen"></i>
                             </a>
                             <a class="btn dropdown-toggle  btn-primary btn-mini" data-toggle="dropdown" href="#">
                                 <span class="icon-chevron-down"></span>
@@ -68,20 +65,19 @@
                                 </li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
-                <div class="ui-widget-body" data-bind="attr: {class: State}">
-                    asdf
+                <div class="ui-widget-body" data-bind="template: State">
+                    
                 </div>
             </div>
         </div>
     </div>
 
 </div>
-    <div class="column span2 well">
-        <button class="btn btn-primary" data-bind="click: AddColumn">Add New</button>
-    </div>
+<div class="column span2 well">
+    <button class="btn btn-primary" data-bind="click: AddColumn">Add New</button>
+</div>
 <div id="add-widget-dialog" class="hide">
     <table class="table table-bordered">
         <tr>
@@ -101,7 +97,7 @@
                 <ul data-bind="foreach: AvailableWidgets">
                     <li>
                         <span data-bind="text: Name"></span>
-                        <button class="btn btn-primary btn-mini" data-bind="click: $root.AddWidget">
+                        <button class="btn btn-primary btn-mini" data-bind="click: $root.InstallWidget">
                             <i class="icon-plus"></i>
                         </button>
                     </li>
@@ -112,13 +108,64 @@
     </table>
 </div>
 
+<script type="text/html" id="Maximized">
+    this is maximized
+</script>
+
+<script type="text/html" id="Minimized">
+    this is minimized
+</script>
+
+<script type="text/html" id="Fullscreen">
+    this is fullscreen
+</script>
+
+<script type="text/html" id="Edit">
+
+    <form class="form-vertical">
+
+        <h2>Textboxes</h2>
+
+        <div class="control-group">
+            <label class="control-label">Email</label>
+            <div class="controls">
+                <input type="text" placeholder="Email" data-behavior="standard" />
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Email</label>
+            <div class="controls">
+                <input type="text" placeholder="Email" data-behavior="auto-populate" data-endpoint="http://someendpoint.asdf" />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputPassword">Password</label>
+            <div class="controls">
+                <input type="password" id="inputPassword" placeholder="Password">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Remember me
+                </label>
+                <button type="submit" class="btn">Save</button>
+            </div>
+        </div>
+    </form>
+</script>
+
+
 <script type="text/javascript">
 
     $(function () {
 
         DashboardService.getDashboard(1, function (data) {
+            console.log(data);
             var viewModel = new DashboardViewModel(data);
-            ko.applyBindings(viewModel);                        
+            ko.applyBindings(viewModel);
         });
 
     });
