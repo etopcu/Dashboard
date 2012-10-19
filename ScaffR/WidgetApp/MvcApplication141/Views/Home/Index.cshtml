@@ -29,7 +29,7 @@
             <span data-bind="value: Title" />
         </div>
         <div class="column-body" data-bind="foreach: WidgetInstances">
-            <div class="ui-widget clearfix" data-bind="attr: {'data-instanceId': InstanceId}">
+            <div class="ui-widget ui-widget-content clearfix" data-bind="attr: {'data-instanceId': InstanceId}">
                 <!-- ko with: Location -->
                 <input type="hidden" name="Column" data-bind="value: Column" />
                 <input type="hidden" name="Order" data-bind="value: Order" />
@@ -41,30 +41,41 @@
                                 <a class="btn btn-primary btn-mini" data-bind="click: Fullscreen">
                                     <i class="icon-fullscreen"></i>
                             </a>
-                            <a class="btn dropdown-toggle  btn-primary btn-mini" data-toggle="dropdown" href="#"><span class="caret"></span>
+                            <a class="btn dropdown-toggle  btn-primary btn-mini" data-toggle="dropdown" href="#">
+                                <span class="icon-chevron-down"></span>
                             </a>
                             <ul class="dropdown-menu pull-right">
                                 <li>
-                                    <a class="maximize" href="#" data-bind="click: Maximize"><i class="icon-plus"></i>Maximize</a>
+                                    <a class="maximize" href="#" data-bind="click: Maximize">
+                                        <i class="icon-plus"></i>Maximize
+                                    </a>
                                 </li>
                                 <li>
-                                    <a class="minimization" href="#" data-bind="click: Minimize"><i class="icon-minus"></i>Minimize</a>
+                                    <a class="minimization" href="#" data-bind="click: Minimize">
+                                        <i class="icon-minus"></i>Minimize
+                                    </a>
                                 </li>
                                 <li>
-                                    <a class="delete" href="#" data-bind="click: Delete"><i class="icon-remove"></i>Delete</a>
+                                    <a class="delete" href="#" data-bind="click: Delete">
+                                        <i class="icon-remove"></i>Delete
+                                    </a>
                                 </li>
                                 <li>
-                                    <a class="no_target" href="#" data-bind="click: Edit"><i class="icon-pencil"></i>Edit</a>
+                                    <a class="no_target" href="#" data-bind="click: Edit">
+                                        <i class="icon-pencil"></i>Edit
+                                    </a>
                                 </li>
                                 <li>
-                                    <a class="no_target" href="#" data-bind="click: Refresh"><i class="icon-refresh"></i>Refresh</a>
+                                    <a class="no_target" href="#" data-bind="click: Refresh">
+                                        <i class="icon-refresh"></i>Refresh
+                                    </a>
                                 </li>
                             </ul>
                         </div>
 
                     </div>
                 </div>
-                <div class="ui-widget-content" data-bind="attr: {class: State}">
+                <div class="ui-widget-body" data-bind="attr: {class: State}">
                     asdf
                 </div>
             </div>
@@ -141,20 +152,7 @@
                 opacity: "0.2",
                 distance: "20",
                 receive: function (event, ui) {
-
-                    //var id = ui.item.attr('id');
-                    //var newColumnId = $(this).closest('[data-column]').attr('data-column');
-
-                    //var column = viewModel.CurrentLayout().Columns()[startColumn];
-                    //console.log(column);
-
-
-                    //var instances = viewModel.CurrentLayout().Columns()[startColumn].WidgetInstances();
-                    //for (var i = 0; i < instances.lenght; i++) {
-                    //    if (instances[i].Id == id) {
-                    //        console.log(instances[i]);
-                    //    }
-                    //}
+                    
                 },
                 start: function (event, ui) {
                     ui.placeholder.height(ui.helper.height());

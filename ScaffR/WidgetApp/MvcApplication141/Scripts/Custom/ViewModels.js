@@ -127,8 +127,11 @@ function WidgetInstanceViewModel(data) {
         self.State('Maximized');
     };
 
-    self.Minimize = function() {
+    self.Minimize = function () {
+        
+        console.log('minimize', self.InstanceId);
         self.State('Minimized');
+        
     };
 
     self.Edit = function() {
