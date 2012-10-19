@@ -49,6 +49,7 @@ function DashboardViewModel(data) {
 
     self.AddWidgetInstance = function(instance) {
         self.WidgetInstances().push(instance);
+        self.WidgetInstances.notifySubscribers(instance);
         console.log('widget instances', self.WidgetInstances());
     };
 
@@ -115,16 +116,14 @@ function ColumnViewModel(data, dashboard) {
 
     self.WidgetInstances = ko.computed(function () {
         var arr = ko.utils.arrayFilter(self.Dashboard.WidgetInstances(), function (widgetInstance) {
-
-            console.log('filter...');
-
+            
             var column = widgetInstance.Location().Column;
             var order = self.Order();
 
             return (column == order);
         });
         return arr;
-    }, self);
+    }, self.Dashboard);
 
 
 }
