@@ -1,0 +1,9 @@
+﻿<configuration>
+
+  <$rootnamespace$>
+    <$rootnamespace$.Core>
+      <site email="webmaster@$rootnamespace$.com" websiteName="$rootnamespace$" companyName="$rootnamespace$" />
+    </$rootnamespace$.Core>
+  </$rootnamespace$>
+
+</configuration>

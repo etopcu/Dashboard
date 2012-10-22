@@ -1,0 +1,4 @@
+﻿*
+
+[references]
+~/areas/dashboard/scripts/js

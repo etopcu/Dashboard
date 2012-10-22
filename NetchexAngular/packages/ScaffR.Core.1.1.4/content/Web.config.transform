@@ -1,0 +1,14 @@
+﻿<configuration>
+
+  <configSections>
+    <sectionGroup name="$rootnamespace$">
+      <section name="$rootnamespace$.Core" type="$rootnamespace$.Core.Configuration.CoreSection, $rootnamespace$.Core" requirePermission="false"/>
+    </sectionGroup>
+  </configSections>
+
+  <$rootnamespace$>
+    <$rootnamespace$.Core>
+    </$rootnamespace$.Core>
+  </$rootnamespace$>
+
+</configuration>

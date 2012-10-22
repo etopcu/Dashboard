@@ -1,3 +1,8 @@
 ﻿[
-	{ "Name": "Widget2", "WidgetId": 3, "Thumbnail": "asdf.png", "Categories": [{"Name": "Category1"}] }
+	{ "Name": "a", "WidgetId": 1, "Thumbnail": "asdf.png", "Categories": [{"Name": "Category1"}] },
+	{ "Name": "b", "WidgetId": 2, "Thumbnail": "asdf.png", "Categories": [{"Name": "Category1"}] },
+	{ "Name": "c", "WidgetId": 3, "Thumbnail": "asdf.png", "Categories": [{"Name": "Category1"}] },
+	{ "Name": "d", "WidgetId": 4, "Thumbnail": "asdf.png", "Categories": [{"Name": "Category1"}] },
+	{ "Name": "e", "WidgetId": 5, "Thumbnail": "asdf.png", "Categories": [{"Name": "Category1"}] },
+	{ "Name": "f", "WidgetId": 6, "Thumbnail": "asdf.png", "Categories": [{"Name": "Category1"}] },
 ]
