@@ -1,6 +1,9 @@
 ﻿/// <reference path="../Scripts/lib/underscore/underscore-1.4.2.js" />
 
 Dashboard.Controllers.controller('home', function ($scope, $dashboard) {
+    
+    $scope.AvailableWidgets = [];
+    $scope.Categories = [];
 
     var handled = false;
 
@@ -9,8 +12,27 @@ Dashboard.Controllers.controller('home', function ($scope, $dashboard) {
         $scope.WidgetInstances = data.WidgetInstances;
     });
 
+    $dashboard.getCatalog(function (result) {
+        $.each(result, function (idx, value) {
+            
+            $scope.AvailableWidgets.push(value);
+            $.each(value.Categories, function (idx2, cat) {
+                var found = _.find($scope.Categories, function (x) {
+                    return (x.Name == cat.Name);
+                });
+
+                if (!found) {
+                    $scope.Categories.push(cat);
+                }
+            });
+        });
+        $scope.ChangeCategory($scope.Categories[0]);
+    });
+
     $scope.InstallWidget = function(catalogItem) {
-        $dashboard.install(catalogItem, 1, function(result) {
+        $dashboard.install(catalogItem, 1, function (result) {
+            result.State = 'Edit';
+            result.CanDelete = true;
             $scope.WidgetInstances.push(result);
             $('#catalog').dialog('close');
         });
@@ -18,7 +40,13 @@ Dashboard.Controllers.controller('home', function ($scope, $dashboard) {
 
     $scope.SetState = function(instance, state) {
         instance.State = state;
-    };    
+    };
+
+    $scope.Delete = function (instance) {
+        if (instance.CanDelete) {
+            $scope.WidgetInstances = _.without($scope.WidgetInstances, instance);
+        }        
+    };
 
     $scope.GetWidgetPath = function(widget) {
         return "/dashboard/widgets/" + widget.Name + "/" + widget.State + ".html";
@@ -51,29 +79,7 @@ Dashboard.Controllers.controller('home', function ($scope, $dashboard) {
         $scope.category = cat;
     };
 
-    $dashboard.getCatalog(function (result) {
-
-        $scope.AvailableWidgets = [];
-        $scope.Categories = [];
-
-        $.each(result, function (idx, value) {
-
-            $scope.AvailableWidgets.push(value);
-
-            $.each(value.Categories, function (idx2, cat) {
-
-                var found = _.find($scope.Categories, function (x) {
-                    return (x.Name == cat.Name);
-                });
-
-                if (!found) {
-                    $scope.Categories.push(cat);
-                }
-            });                        
-        });
-
-        $scope.ChangeCategory($scope.Categories[0]);
-    });
+ 
     
     function indexColumnFromItem(item) {
 

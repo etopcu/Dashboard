@@ -28,8 +28,8 @@
                                             <i class="icon-minus"></i>Minimize
                                         </a>
                                     </li>
-                                    <li>
-                                        <a class="delete" href="#" data-ng-click="Delete">
+                                    <li ng-class="{hidden: !instance.CanDelete}" >
+                                        <a class="delete" data-ng-click="Delete(instance)">
                                             <i class="icon-remove"></i>Delete
                                         </a>
                                     </li>
@@ -60,7 +60,7 @@
     </div>
     <button class="btn btn-primary" opendialog>Add Widget</button>
     <div id="catalog" class="hide">
-        <table class="table table-bordered">
+        <table class="table table-bordered" style="height: 250px">
             <tr>
                 <td style="width: 200px">
                     <ul class="nav nav-list nav-stacked">
@@ -75,9 +75,9 @@
                 <td>
                     <h1>{{category.Name}}</h1>
 
-                    <ul>
-                        <li data-ng-repeat="item in AvailableWidgets | categoryFilter:1}">
-                            <a ng-click="InstallWidget(item)">{{item.Name}}</a>
+                    <ul data-ng-model="AvailableWidgets">
+                        <li data-ng-repeat="asdf in AvailableWidgets | categoryFilter:category.Name">
+                            <a ng-click="InstallWidget(asdf)">{{asdf.Title}}</a>
                         </li>
                     </ul>
 

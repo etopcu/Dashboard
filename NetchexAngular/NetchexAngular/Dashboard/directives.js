@@ -17,8 +17,8 @@ Dashboard.Directives.directive('opendialog', function ($dashboard) {
             element.bind('click', function (data) {
 
                 $('#catalog').dialog({
-                    height: 500,
-                    width: 500
+                    height: 300,
+                    width: 800
                 });
 
             });

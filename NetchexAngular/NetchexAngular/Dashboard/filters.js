@@ -22,16 +22,17 @@
 
 Dashboard.Filters.filter('categoryFilter', function () {
     return function (input, categoryName) {
+
         var arr = [];
-        for (var i = 0; i < input.length; i++) {
-            var categories = input.Categories;
-            var found = _.find(categories, function(obj) {
-                return obj.Name = categoryName;
+        _.each(input, function(obj) {
+
+            return _.each(obj.Categories, function(cat) {
+                if (cat.Name == categoryName) {
+                    arr.push(obj);
+                }
             });
-            if (found) {
-                arr.push(input);
-            }
-        }
+
+        });
         return arr;
     };
 });
