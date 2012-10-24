@@ -12,8 +12,9 @@ namespace NetchexAngular.Bootstrappers
             configurable.AddPerSubDirectory<StylesheetBundle>("Content/themes/base");
             configurable.AddPerSubDirectory<ScriptBundle>("Scripts");
             configurable.AddPerSubDirectory<ScriptBundle>("Scripts/lib", bundle => bundle.PageLocation = "vendor", true);
-            configurable.AddPerSubDirectory<ScriptBundle>("Areas/Dashboard/Scripts/js");
-            configurable.AddPerSubDirectory<StylesheetBundle>("Areas/Dashboard/content/less");
+            configurable.AddPerSubDirectory<ScriptBundle>("dashboard");
+            configurable.AddPerSubDirectory<StylesheetBundle>("dashboard/less");
+            configurable.AddPerSubDirectory<ScriptBundle>("dashboard/widgets", true);
         }
 	}
 }

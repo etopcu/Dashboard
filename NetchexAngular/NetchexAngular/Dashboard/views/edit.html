@@ -1,0 +1,8 @@
+﻿<div ng-model="instance" ng-controller="widget">
+    <div ng-include src="'/dashboard/widgets/' + instance.Name + '/edit.html'">
+    </div>
+    
+    <div>
+        <button ng-click="save()">Save</button>
+    </div>
+</div>

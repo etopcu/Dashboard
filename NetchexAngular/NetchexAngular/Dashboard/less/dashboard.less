@@ -1,0 +1,59 @@
+﻿@import "../../content/bundles/globals/enterprise.less";
+
+.column-body{
+	min-height: 100px;
+	margin-bottom: -10px;	
+}
+
+.selected-column{
+	border: 2px dashed black;
+}
+
+.well.column{
+	padding: 3px;
+	margin: 3px !important;
+	button{
+		width: 100%;
+	}
+}
+
+.btn-mini {
+  padding: 2px 3px !important;
+  font-size: @baseFontSize - 5px !important;
+  line-height: @baseLineHeight - 9px !important;
+}
+
+.ui-widget{
+	margin-bottom: 10px;
+
+	.ui-widget-header{
+
+		.icons{
+			display:none;
+		}
+
+		&:hover{
+			cursor: move;
+			.icons{
+				display: block;
+			}
+			
+		}
+	}
+
+	.dropdown-menu{
+		margin-top: 0px !important;
+	}
+
+	.Maximized{
+		
+	}
+
+	.Minimized{
+		
+	}
+
+	.Fullscreen{
+	}
+
+}

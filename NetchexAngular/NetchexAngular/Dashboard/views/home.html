@@ -1,0 +1,88 @@
+﻿<div data-ng-controller="home">
+    <button class="btn btn-primary" data-ng-click="AddColumn()">Add Column</button>
+    <div class="Columns">
+        <div class="column span3 well" data-column="{{$index}}" data-ng-repeat="column in Columns">
+            <div class="column-body" data-ui-sortable=""
+                data-ui-options="{placeholder: 'selected-column', connectWith:'.column-body', opacity: '0.2', distance: '20', receive: receive, start: start, stop: stop}"
+                data-ng-model="WidgetInstances">
+
+                <div class="ui-widget clearfix" data-instanceid="{{instance.InstanceId}}" data-ng-repeat="instance in WidgetInstances | orderBy:Order | widgetFilter:$index ">
+                    <div class="ui-widget-header">
+                        <span>{{instance.Title}}</span>
+                        <div class="pull-right icons">
+                            <div class="btn-group">
+                                <a class="btn btn-primary btn-mini" data-ng-click="SetState(instance,'Fullscreen')">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <a class="btn dropdown-toggle  btn-primary btn-mini" data-toggle="dropdown">
+                                    <span class="icon-chevron-down"></span>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <a class="maximize" data-ng-click="SetState(instance,'Maximized')">
+                                            <i class="icon-plus"></i>Maximize
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="minimization" data-ng-click="SetState(instance,'Minimized')">
+                                            <i class="icon-minus"></i>Minimize
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="delete" href="#" data-ng-click="Delete">
+                                            <i class="icon-remove"></i>Delete
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="no_target" data-ng-click="SetState(instance,'Edit')">
+                                            <i class="icon-pencil"></i>Edit
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="no_target" href="#" data-ng-click="Refresh">
+                                            <i class="icon-refresh"></i>Refresh
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                                        
+                    <div class="ui-widget-content">
+                        <div widget>
+                            
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary" opendialog>Add Widget</button>
+    <div id="catalog" class="hide">
+        <table class="table table-bordered">
+            <tr>
+                <td style="width: 200px">
+                    <ul class="nav nav-list nav-stacked">
+                        <li ng-class="{active: cat.Name==category.Name}" ng-repeat="cat in Categories">
+                            <a data-ng-click="ChangeCategory(cat)">
+                                <span>{{cat.Name}}</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </td>
+                <td>
+                    <h1>{{category.Name}}</h1>
+
+                    <ul>
+                        <li data-ng-repeat="item in AvailableWidgets | categoryFilter:1}">
+                            <a ng-click="InstallWidget(item)">{{item.Name}}</a>
+                        </li>
+                    </ul>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

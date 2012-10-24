@@ -1,0 +1,6 @@
+﻿dashboard.js
+*
+
+[references]
+~/scripts/lib/angular
+~/scripts/lib/jquery

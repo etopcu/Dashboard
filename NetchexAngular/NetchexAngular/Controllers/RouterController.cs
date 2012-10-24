@@ -13,7 +13,7 @@ namespace NetchexAngular.Controllers
 
         public ActionResult Index()
         {
-            return Redirect("/Dashboard");
+            return RedirectToAction("Index", "Dashboard");
         }
 
     }

@@ -1,0 +1,42 @@
+﻿@using MvcSiteMapProvider.Web.Html
+@using NetchexAngular.Extensions.Sitemap
+@{
+    ViewBag.Title = "Layout";
+    Layout = "~/Views/Shared/Cassette.cshtml";
+    Bundles.Reference("dashboard");
+    Bundles.Reference("dashboard/less");
+    Bundles.Reference("content/themes/base");
+    Bundles.Reference("dashboard/widgets/profile");
+}
+
+<style type="text/css">
+    body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+    .sidebar-nav {
+        padding: 9px 0;
+    }
+</style>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="@Url.Content("/")">@Site.Instance.WebsiteName</a>
+            <div class="nav-collapse collapse">
+                @Html.MvcSiteMap("Public").Nav()
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" ng-app="dashboard">
+    <div class="row-fluid">
+        <div ng-view></div>
+    </div>    
+</div>

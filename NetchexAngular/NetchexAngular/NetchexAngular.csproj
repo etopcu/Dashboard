@@ -133,8 +133,7 @@
   <ItemGroup>
     <Compile Include="Application\MvcApplication.ApplicationStart.cs" />
     <Compile Include="Application\MvcApplication.SessionStart.cs" />
-    <Compile Include="Areas\Dashboard\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
+    <Compile Include="Controllers\Dashboard\DashboardController.cs" />
     <Compile Include="Bootstrappers\Bootstrapper.ActionFilters.cs" />
     <Compile Include="Bootstrappers\Bootstrapper.Cassette.cs" />
     <Compile Include="Bootstrappers\Bootstrapper.Routes.cs" />
@@ -156,13 +155,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Dashboard\Partials\catalog.html" />
-    <Content Include="Areas\Dashboard\Scripts\js\directives\prevent-default.js" />
-    <Content Include="Areas\Dashboard\Scripts\js\directives\open-dialog.js" />
-    <Content Include="Areas\Dashboard\Widgets\Widget1\edit.html" />
-    <Content Include="Areas\Dashboard\Widgets\Widget1\fullscreen.html" />
-    <Content Include="Areas\Dashboard\Widgets\Widget1\minimized.html" />
-    <Content Include="Areas\Dashboard\Widgets\Widget1\maximized.html" />
+    <Content Include="Dashboard\bundle.txt" />
+    <Content Include="Dashboard\views\catalog.html" />
+    <Content Include="Dashboard\directives.js" />
+    <Content Include="Dashboard\views\edit.html" />
+    <Content Include="Dashboard\views\maximized.html" />
+    <Content Include="Dashboard\views\minimized.html" />
+    <Content Include="Dashboard\widgets\Profile\controller.js" />
+    <Content Include="Dashboard\widgets\Profile\edit.html" />
+    <Content Include="Dashboard\widgets\Profile\fullscreen.html" />
+    <Content Include="Dashboard\widgets\Profile\minimized.html" />
+    <Content Include="Dashboard\widgets\Profile\maximized.html" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -190,17 +193,15 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
-    <Content Include="Areas\Dashboard\Partials\home.html" />
-    <Content Include="Areas\Dashboard\Scripts\js\App.js" />
-    <Content Include="Areas\Dashboard\Scripts\js\bundle.txt" />
-    <Content Include="Areas\Dashboard\Scripts\js\Config.js" />
-    <Content Include="Areas\Dashboard\Scripts\js\controllers\bundle.txt" />
-    <Content Include="Areas\Dashboard\Scripts\js\controllers\home-controller.js" />
-    <Content Include="Areas\Dashboard\Scripts\js\directives\bundle.txt" />
-    <Content Include="Areas\Dashboard\Scripts\js\filters\bundle.txt" />
-    <Content Include="Areas\Dashboard\Scripts\js\filters\widget-filter.js" />
-    <Content Include="Areas\Dashboard\Scripts\js\services\bundle.txt" />
-    <Content Include="Areas\Dashboard\Scripts\js\services\dashboard-service.js" />
+    <Content Include="Dashboard\views\home.html" />
+    <Content Include="Dashboard\dashboard.js" />
+    <Content Include="Dashboard\controllers.js" />
+    <Content Include="Dashboard\filters.js" />
+    <Content Include="Dashboard\services.js" />
+    <Content Include="Dashboard\widgets\Widget1\edit.html" />
+    <Content Include="Dashboard\widgets\Widget1\fullscreen.html" />
+    <Content Include="Dashboard\widgets\Widget1\maximized.html" />
+    <Content Include="Dashboard\widgets\Widget1\minimized.html" />
     <Content Include="Scripts\js\bundle.txt" />
     <Content Include="Scripts\lib\angular\angular-cookies.js" />
     <Content Include="Scripts\lib\angular\angular-cookies.min.js" />
@@ -236,6 +237,7 @@
     <Content Include="Scripts\js\global.modal.js" />
     <Content Include="Scripts\js\global.notifications.js" />
     <Content Include="Scripts\js\global.validation.js" />
+    <Content Include="Scripts\lib\underscore\underscore-1.4.2.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -246,10 +248,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Dashboard\Content\font\" />
-    <Folder Include="Areas\Dashboard\Content\html\" />
-    <Folder Include="Areas\Dashboard\Content\img\" />
-    <Folder Include="Areas\Dashboard\Widgets\Widget2\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -408,12 +406,6 @@
     <Content Include="CodeTemplates\Scaffolders\ScaffR.Bootstrap\ScaffR.Bootstrap.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Dashboard\Views\Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Dashboard\Views\Shared\Layout.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\ValidationEngine.cs.t4" />
   </ItemGroup>
   <ItemGroup>
@@ -450,7 +442,7 @@
     <Content Include="CodeTemplates\Scaffolders\ScaffR.Site\Common\Site.cs.t4" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Dashboard\Views\Home\Index.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Bootstrap\BasicMarketing.cshtml" />
@@ -473,11 +465,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Dashboard\Scripts\json\availableWidgets.json" />
-    <Content Include="Areas\Dashboard\Scripts\json\defaultLayout.json" />
+    <Content Include="Dashboard\json\availableWidgets.json" />
+    <Content Include="Dashboard\json\dashboard.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Dashboard\Content\less\dashboard.less" />
+    <Content Include="Dashboard\less\dashboard.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dashboard\json\user.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,8 +1,0 @@
-﻿[
-	{ "Name": "Widget1", "WidgetId": 1, "Thumbnail": "asdf.png", "Categories": [{"Name": "Category1"}] },
-	{ "Name": "Widget1", "WidgetId": 2, "Thumbnail": "asdf.png", "Categories": [{"Name": "Category1"}] },
-	{ "Name": "Widget1", "WidgetId": 3, "Thumbnail": "asdf.png", "Categories": [{"Name": "Category1"}] },
-	{ "Name": "Widget1", "WidgetId": 4, "Thumbnail": "asdf.png", "Categories": [{"Name": "Category1"}] },
-	{ "Name": "Widget1", "WidgetId": 5, "Thumbnail": "asdf.png", "Categories": [{"Name": "Category1"}] },
-	{ "Name": "Widget1", "WidgetId": 6, "Thumbnail": "asdf.png", "Categories": [{"Name": "Category1"}] }
-]
