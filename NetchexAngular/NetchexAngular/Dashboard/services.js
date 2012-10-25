@@ -29,7 +29,7 @@
 
 });
 
-Dashboard.Services.factory('$user', function($config, $http) {
+Dashboard.Services.factory('$user', function ($config, $http) {
     return {
         get: function(callback) {
             $http.get($config.JSON_URL + 'user.json').success(function (data, status, headers, config) {

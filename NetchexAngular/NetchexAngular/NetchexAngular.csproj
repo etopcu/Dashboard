@@ -155,6 +155,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\profilePic.jpg" />
     <Content Include="Dashboard\bundle.txt" />
     <Content Include="Dashboard\views\catalog.html" />
     <Content Include="Dashboard\directives.js" />

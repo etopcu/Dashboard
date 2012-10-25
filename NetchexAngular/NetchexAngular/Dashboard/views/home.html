@@ -76,8 +76,8 @@
                     <h1>{{category.Name}}</h1>
 
                     <ul data-ng-model="AvailableWidgets">
-                        <li data-ng-repeat="asdf in AvailableWidgets | categoryFilter:category.Name">
-                            <a ng-click="InstallWidget(asdf)">{{asdf.Title}}</a>
+                        <li data-ng-repeat="item in AvailableWidgets | categoryFilter:category.Name">
+                            <a ng-click="InstallWidget(item)">{{item.Title}}</a>
                         </li>
                     </ul>
 

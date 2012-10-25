@@ -1,3 +1,109 @@
-﻿<div ng-controller="profile">
-    Welcome Back, {{user.FirstName}} {{user.LastName}}
+﻿<style type="text/css">   
+    label
+    {               
+        font-weight: normal;
+    }
+    .profileMain
+    {
+        min-width:400px;
+        min-height:450px;
+        height: 100%;
+        width: 100%;
+    }
+
+    .profilepic
+    {
+        float: left;
+        height: 150px;
+        width: 149px;
+            
+    }
+
+    .info1
+    {
+        float: left;
+        height: 30%;
+        width: 100%;
+    }
+
+    .info1 .InfoId
+    {
+        margin: 10px auto;
+        height: 100%;
+        width: inherit;
+    }
+
+        .info1 .InfoId .nameInfo {   
+            font-weight: bold;
+            font-size:35px;
+            margin-bottom: 10px;
+        }
+    .info2
+    {
+        margin-left:15px;
+        float: left;
+        height: 25%;
+        width: 100%;
+    }
+
+    .detailInfo
+    {
+        /*margin: 10px 10px 0px 10px;*/
+        float: left;
+        height: 50%;
+        width: 100%;
+    }
+		body {
+		margin:0;
+		color:#333333;
+		font:12px/1.4 arial,FreeSans,Helvetica,sans-serif;
+	}		
+
+    .​sizeHeader
+    {   
+        width: 33% !important;
+    }
+</style>
+<div ng-controller="profile" style="width:100%">
+    <div class="profilepic" style='background:url("/Content/images/profilePic.jpg") no-repeat center;'> </div>
+    <div class="info1" >
+        <div class="InfoId">
+            <div class="nameInfo"><label>{{user.FirstName}}</label></div>
+            <div>Deparment</div>
+            <div>Supervisor</div>
+            <div>Cell Phone: {{user.CellPhone}}</div>
+            <div>Email: {{user.Email}}</div>
+        </div>
+    </div>
+    <div class="info2">
+        <div>Address : {{user.Address}}</div>
+        <div>City/State/ Zip: <label data-bind="text: City"></label></div>
+        <div>Emergency Contact: <label data-bind="text: EmergencyContact"></label></div>
+    </div>
+    <div class="detailInfo">
+        <table>
+            <span class='gbl-table-wrapper ui-widget'>
+                <div class='ui-widget-header'>My Key Dates</div>
+                <table class='gbl-table-row-hover ui-widget-content' style='width: 100%'>
+                    <thead>
+                        <tr>
+                            <th class="sizeHeader">Event Name</th>
+                            <th class="sizeHeader">Date</th>
+                            <th class="sizeHeader">Years</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="{eventName: 'listTemp1', foreach: eventList}">
+                        <tr >                                      
+                            <td data-bind="text: eventName" style="text-align:left"></td>
+                            <td data-bind="text: eventDate" style="text-align:left"></td>
+                            <td data-bind="text: eventYear" style="text-align:left"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </span>
+        </table>
+    </div>
+    <script id="listTemp1" type="text/html"></script>
+    <div style="clear:both;">
+	</div>
 </div>
